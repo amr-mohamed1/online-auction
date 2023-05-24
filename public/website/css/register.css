@@ -1,0 +1,120 @@
+body{
+    font-family: Roboto;
+    background-color: #e0e0e050;
+}
+#d1,#d2{
+    border: none;
+    padding: 15px;
+}
+#d1{
+    border-radius:4px;
+    box-shadow: -2px 2px  #00000050;
+}
+#d2{
+    background-image: url(../images/d1-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0;
+}
+#supplierid{
+    display: none;
+}
+.forminputs{
+    display: block;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding-left: 5px;
+}
+.forminputs:focus{
+    outline: none !important;
+    border:1px solid #5ca85f;
+    box-shadow: 0 0 10px #81cd84;
+}
+section h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 200%;
+    font-family: Mynerve;
+    font-weight: 700;
+}
+.forminputs::-webkit-input-placeholder,input[type=date]::-webkit-datetime-edit {
+    font-family: Mynerve;
+}
+#homenumber{
+    margin-bottom: 35px;
+}
+
+
+#d2 a{
+    color: #ffffff;
+    float: right;
+    text-decoration: underline;
+    font-family: Mynerve;
+}
+
+#d2 a:hover{
+    color: #1b9225;
+    text-decoration: underline;
+}
+
+#profilepic::-webkit-file-upload-button {
+    visibility: hidden;
+}
+#profilepic::before {
+    content: 'Select Profile Picture';
+    display: inline-block;
+    border: none;
+    border-radius: 3px;
+    padding: 13px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-size: 10pt;
+    width: 100%;
+    text-align: center;
+    background-image: url(../images/add_image_100px.png);
+    background-repeat: no-repeat;
+    margin-bottom: 42px;
+
+}
+#profilepic:hover::before {
+    border-color: black;
+}
+#profilepic:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+input[type=submit]{
+    font-family: Mynerve;
+    font-weight: 900;
+    font-size: 125%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    border-radius: 100px;
+    overflow: hidden;
+}
+input[type=submit]:hover{
+    color: white;
+    background-color: #a76e99;
+}
+
+#d2 label,#d2 h1{
+    color: white;
+}
+
+@media (max-width:767px) {
+    #d1{
+        border-radius: 0;
+    }
+}

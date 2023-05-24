@@ -1,0 +1,161 @@
+@font-face {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    src: url(../fonts/Roboto-Black.ttf);
+}
+
+body{
+    /* background-color: #ccdcec; */
+    background: rgb(136,203,171);
+    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgb(2, 119, 103) 100%);
+    margin: 0;
+    font-family: Roboto ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+#first-sec{
+    background-color: #02b8c5;
+    background-image: url(../images/d1-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    margin-top: -50px;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    padding-left: 70px;
+    padding-right: 90px;
+}
+#writings{
+    overflow: hidden;
+}
+#writings h1{
+    color: #ffffff;
+    font-family: Roboto;
+    font-weight: 700;
+    margin-top: 85px;
+    margin-bottom: 20px;
+    font-size: 405%;
+}
+#writings p {
+    font-family: Roboto;
+    color: #ffffff;
+    font-weight: 0;
+    text-align: justify;
+    margin-left: 5px;
+}
+p#job{
+    color: #ffffff;
+}
+#bigphoto{
+    margin-top: 50px;
+    overflow: hidden;
+}
+#bigphoto img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.btns{
+    display: block;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+    height: 40px;
+    border-radius: 100px;
+    border:none;
+    color: #ffff;
+    font-family: Mynerve;
+    font-size: 120%;
+    font-weight: 400;
+}
+#morebtn{
+    background-color: #c4742f;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+#morebtn:hover{
+    background-color: #ff7700;
+}
+#loginbtn{
+    background-color: #09949e;
+    margin-bottom: 20px;
+}
+#loginbtn:hover{
+    background-color: #00eeff;
+}
+#signupbtn{
+    background-color: #a76e99;
+}
+#signupbtn:hover{
+    background-color: #ff00bf;
+}
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1199px) {
+    #writings h1{
+        font-size: 320%;
+    }
+    .btns{
+        width: 40%;
+        font-size: 120%;
+    }
+}
+@media (max-width:991px) {
+    #first-sec{
+        margin-top: -50px;
+        padding-top: 0px;
+        padding-bottom: 50px;
+        padding-left: 0px;
+        padding-right: 0px;
+        text-align: center;
+    }
+    #bigphoto{
+        margin-top: 50px;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+        width: 95%;
+    }
+    #bigphoto img{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    #writings{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+@media (max-width: 767px) {
+    #writings h1{
+        margin-top: 10px;
+        font-size: 200%;
+        text-align: Center;
+    }
+    #writings p#job {
+        text-align: justify ;
+    }
+    .btns{
+        width: 80%;
+        font-size: 120%;
+        height: 70px;
+    }
+    #morebtn{
+        margin-bottom: 50px;
+        margin-top: 80px;
+
+    }
+}
+
+

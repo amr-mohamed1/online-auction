@@ -1,0 +1,462 @@
+body{
+    font-family: Roboto;
+    background-image: url(../images/d1-bg-copy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #bebebe;
+}
+
+#home{
+    color: #dddddd;
+}
+#home:hover{
+    color: white;
+}
+.navbar-inverse .navbar-nav>li>a#auctions{
+    color: #ffff;
+}
+.navbar-inverse .navbar-nav>li>a#login{
+    color: #72e277;
+}
+.navbar-inverse .navbar-nav>li>a#login:hover{
+    color: #00ff0d;
+}
+.navbar-inverse .navbar-nav>li>a#login{
+    color: #72e277;
+}
+#d1,#d2{
+    overflow: hidden;
+}
+#d1{
+    background-image: url(../images/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    padding-left: 50px;
+    margin-bottom: 40px;
+}
+#d1 img{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+#d1 h1,#d1 h2{
+    display: block;
+    text-align: center;
+}
+#d1 h1{
+    margin-top: 40px;
+}
+#d1 h2{
+    font-family: Mynerve;
+    font-weight: 600;
+}
+#d3{
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: Mynerve;
+    font-weight: 900;
+    color: white;
+}
+#leftnav{
+    background-image: url(../images/19742\ copy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    height: 650px;
+    padding: 50px;
+    padding-top: 10px;
+    width: 260px;
+    margin-right: 15px;
+    margin-left: -15px;
+    border-radius: 10px;
+}
+#leftnav h2 {
+    margin-bottom: 35px;
+}
+#leftnav a {
+    display: block;
+    color: #333;
+    text-align: left;
+    font-size: 120%;
+    margin-bottom: 25px;
+    font-family: Roboto;
+    font-weight: 500;
+}
+#leftnav a:hover {
+    color: white;
+    text-decoration: none;
+}
+.categories{
+    text-decoration: none;
+    text-align: center;
+    font-family: Mynerve;
+    color: #f3dbfb;
+}
+.categories:hover{
+    color:#f3dbfb;
+}
+.cat{
+    background-image: url(../images/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10px;
+    width: 190px;
+    height: 200px;
+    border: none;
+    color: #333;
+    margin-left: 33px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
+.cat:hover{
+    background-image: url(../images/19742\ copy.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 2px 2px #0000007c;
+}
+.categories img{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+}
+.categories h3{
+    margin-top: 0;
+    font-weight: 900;
+    font-size: 120%;
+}
+#sell{
+    margin-top: 20px;
+    background-color: #ffffff;
+    overflow: hidden;
+    padding: 5px;
+}
+#divsell img{
+    overflow: hidden;
+    width: 80%;
+    padding: 80px;
+    padding-top: 100px;
+}
+#divwrite{
+    overflow: hidden;
+    padding: 80px;
+    padding-top: 100px;
+}
+#divwrite h3{
+    font-family: Roboto;
+    font-weight: 900;
+    font-size: 400%;
+}
+#divwrite p{
+    color: #949494;
+    font-family: Mynerve;
+    font-weight: 700;
+    font-size: 200%;
+}
+#sellbut,#signbut{
+    margin-top: 50px;
+    margin-left: -15px;
+}
+#sellbut button,#signbut button{
+    width: 180px;
+    height: 50px;
+    border: none;
+    border-radius: 100px;
+}
+#sellbut button{
+    background-color: #72e277;
+}
+#sellbut button:hover{
+    background-color: #2afd35;
+}
+#signbut button{
+    background-color: rgb(209, 111, 131);
+}
+#signbut button:hover{
+    background-color: rgb(255, 45, 87);
+}
+footer{
+    margin-top: 0px;
+}
+@media (min-width:1875px) {
+    #divwrite h3{
+        font-size: 800%;
+    }
+    #divwrite p{
+        font-size: 400%;
+    }
+    #sellbut,#signbut{
+        margin-top: 150px;
+        margin-left: -15px;
+    }
+    #sellbut button,#signbut button{
+        width: 80%;
+        height: 100px;
+        border-radius: 50px;
+        font-size: 200%;
+    }
+}
+@media (max-width:1199px) {
+    #d1 h1{
+        margin-top: 20px;
+    }
+    #leftnav{
+        margin-right: 0px;
+        width: 240px;
+        padding: 40px;
+        padding-top: 5px;
+    }
+    .cat{
+        width: 160px;
+        margin-left: 22px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+    }
+
+    #sellbut button,#signbut button{
+        width: 100%;
+    }
+}
+@media (max-width:991px) {
+    #d1 h2{
+        font-size: 149%;
+    }
+    #leftnav{
+        width: 200px;
+        padding: 20px;
+        padding-top: 5px;
+        height: 800px;
+    }
+    #leftnav h2{
+        text-align: center;
+        font-size: 180%;
+        margin-bottom: 50px;
+    }
+    #leftnav a{
+        margin-bottom: 33px;
+    }
+    .cat{
+        padding: 10px;
+        width: 160px;
+        height: 180px;
+        margin-left: 22px;
+        margin-bottom: 25px;
+        border-radius: 10px;
+    }
+    #divsell img{
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #sellbut button,#signbut button{
+        border-radius: 4px;
+        overflow: hidden;
+        width: 100%;
+    }
+}
+
+@media (max-width:767px) {
+    .navbar{
+        margin-bottom: 0;
+    }
+    #navlist{
+        margin-bottom: 0;
+    }
+    #d1{
+        padding: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 0;
+    }
+    #d1 h1{
+        margin-top: 60px;
+        font-size: 200%;
+    }
+    #d1 h2{
+        font-size: 121%;
+    }
+    #d1 img{
+        width: 100%;
+        margin-left: -50;
+        margin-right: auto;
+    }
+}
+@media (max-width:727px) {
+    .cat{
+        width: 155px;
+    }
+    .cat img{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width:707px) {
+    .cat{
+        width: 150px;
+    }
+    .cat img{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width:687px) {
+    .cat{
+        width: 145px;
+    }
+    .cat img{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width:667px) {
+    .cat{
+        width: 140px;
+    }
+
+}
+@media (max-width:648px) {
+    #d1 h1{
+        margin-top: 40px;
+    }
+}
+@media (max-width:647px) {
+    .cat{
+        width: 130px;
+    }
+}
+@media (max-width:607px) {
+    .cat{
+        width: 120px;
+    }
+    .cat img{
+        margin-bottom: 35px;
+    }
+}
+@media (max-width:567px) {
+    .cat{
+        width: 115px;
+    }
+    .cat img{
+        margin-bottom: 35px;
+    }
+}
+@media (max-width:561px) {
+    #d1 h2{
+        font-size: 120%;
+    }
+}
+
+@media (max-width:557px) {
+    #d1 h2{
+        font-size: 117%;
+    }
+}
+@media (max-width:547px) {
+    .cat{
+        width: 110px;
+    }
+    .cat img{
+        margin-bottom: 35px;
+    }
+}
+@media (max-width:545px) {
+    #d1 h1{
+        margin-top: 30px;
+    }
+    #d1 h2{
+        font-size: 100%;
+    }
+}
+@media (max-width:527px) {
+    .cat{
+        width: 105px;
+    }
+    .cat img{
+        margin-bottom: 35px;
+    }
+}
+@media (max-width:507px) {
+    .cat{
+        width: 100px;
+    }
+    .cat img{
+        margin-bottom: 45px;
+    }
+}
+@media (max-width:487px) {
+    .cat{
+        width: 90px;
+        height: 150px;
+    }
+    .cat img{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width:474px) {
+    #d1 h1{
+        margin-top: 25px;
+        font-size: 180%;
+    }
+    #d1 h2{
+        font-size: 95%;
+    }
+}
+@media (max-width:454px) {
+    #d1 h1{
+        font-size: 170%;
+    }
+    #d1 h2{
+        font-size: 90%;
+    }
+}
+@media (max-width:447px) {
+    .cat{
+        width: 80px;
+    }
+    .cat img{
+        margin-bottom: 20px;
+    }
+}
+@media (max-width:407px) {
+    .cat{
+        width: 70px;
+        font-size: 12px;
+    }
+    .cat img{
+        margin-bottom: 40px;
+    }
+}
+@media (max-width:391px) {
+    #d1 h1{
+        font-size: 150%;
+    }
+}
+@media (max-width:370px) {
+    #d1 h1{
+        font-size: 130%;
+    }
+    #d1 h2{
+        font-size: 70%;
+    }
+}
+@media (max-width:367px) {
+    .cat{
+        width: 60px;
+        font-size: 9px;
+    }
+    .cat img{
+        margin-bottom: 40px;
+    }
+}
+@media (max-width:298px) {
+    #d1 h1{
+        margin-top: 10px;
+        font-size: 100%;
+    }
+    #d1 h2{
+        font-size: 50%;
+    }
+}

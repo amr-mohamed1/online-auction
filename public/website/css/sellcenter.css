@@ -1,0 +1,83 @@
+body{
+    background-image: url(../images/pngtree-white-abstract-vector-web-background-design-picture-image_1354906.jpg);
+    font-family: Roboto;
+}
+.navbar{
+    margin-bottom: 50px;
+}
+input,select{
+    display: block;
+}
+div{
+    overflow: hidden;
+}
+input,select{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+
+#productpic::-webkit-file-upload-button {
+    visibility: hidden;
+}
+#productpic::before {
+    content: 'Select Up to 4 Photos';
+    display: inline-block;
+    background: linear-gradient(top, #f9f9f9, #e3e3e3);
+    border: 1px solid #999;
+    border-radius: 3px;
+    padding: 13px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    text-shadow: 1px 1px #fff;
+    font-family: Mynerve;
+    font-weight: 900;
+    font-size: 13pt;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-image: url(../images/add_image_100px.png);
+    background-repeat: no-repeat;
+}
+  #productpic:hover::before {
+    border-color: black;
+  }
+  #productpic:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+
+  input[type=submit]{
+    margin-top: 25px;
+  }
+input[type=datetime-local]::-webkit-datetime-edit,input::-webkit-input-placeholder {
+    font-family: Mynerve;
+}
+.in{
+    padding-left: 5px;
+    border: 1px solid #999;
+    border-radius: 4px;
+
+}
+
+input[type=submit]{
+    background-color: #10bf5f;
+    color: white;
+    font-family: Mynerve;
+    font-weight: 900;
+    font-size: 20pt;
+
+}
+input[type=submit]:hover{
+    background-color: #00ff73;
+}
+
+@media (max-width:767px) {
+    #div2{
+        padding: 0;
+    }
+}

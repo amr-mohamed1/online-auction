@@ -1,0 +1,21 @@
+label{
+    display: block;
+}
+input{
+border-radius: 8px;
+width: 40%;
+height: 40px;
+margin-bottom: 20px;
+color: black;
+padding-left: 10px;
+}
+button{
+    background-color: rgb(167, 52, 52);
+    width: 20%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+}
+button:hover{
+    background-color: rgb(199, 40, 40);
+}

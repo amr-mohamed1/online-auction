@@ -1,0 +1,27 @@
+body{
+    overflow-x: hidden;
+    background-image: url(../images/dbvjwkm-f6f2b5bc-f8c2-4d46-b7b3-4b3ce8956af7.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.product{
+    margin-top: 0px;
+}
+
+.middleBlock {
+    display: none;
+}
+.recommended{
+    margin-bottom: 20px;
+    text-align: center;
+    color: white;
+
+}
+#recommendprod{
+    display: block;
+}
+@media (max-width:767px) {
+    .product>h1{
+        font-size: 250%;
+    }
+}

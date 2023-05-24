@@ -1,0 +1,53 @@
+.navbar {
+    border: none;
+    border-radius: 0;
+    height: 50px;
+    margin-top: 0px;
+    margin-left: -15px;
+    margin-right: -15px;
+    background-color: #333;
+}
+.navbar-header {
+    margin-top: -22px;
+}
+.navbar-toggle{
+    margin-top: -50px;
+}
+#colabse{
+    display: hide;
+}
+.lista{
+    font-family: Roboto;
+    font-weight:500;
+}
+
+
+#home{
+    color: white;
+}
+
+#login{
+    color: #6cb670;
+}
+#login:hover{
+    color: #00ff0d; 
+}
+#signup{
+    color: #d36eba;
+}
+#signup:hover{
+    color: #ff00bf;
+}
+
+@media (max-width: 767px) {
+    #navlist{
+        background-color: #333;
+    }
+    .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+        border-top-color:#333;
+        margin-top: -15px;
+        float: right;
+        width: 75%;
+        
+    }
+}

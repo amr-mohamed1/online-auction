@@ -1,0 +1,22 @@
+.div-report{
+    background-image: url(../images/5118583.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    font-family: Roboto;
+    padding: 10px 20px;
+}
+textarea{
+    border-radius: 10px;
+    color: black;
+    font-size: 14px;
+    font-weight: 500;
+    width: 100%;
+    padding: 10px;
+}
+.hea{
+    font-family: Mynerve;
+}
+#rep-des{
+    margin-top: 20px;
+}

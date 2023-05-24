@@ -1,0 +1,326 @@
+@extends('layout.website.master')
+@section('title', 'Product Dashboard')
+
+@section('page-styles')
+    <link rel="stylesheet" href="{{asset('website/css/navbarlogged.css')}}">
+    <link rel="stylesheet" href="{{asset('website/css/register.css')}}">
+    {{--    <link rel="stylesheet" href="{{asset('website/css/upload.css')}}">--}}
+    <link rel="stylesheet" href="{{asset('website/css/profile.css')}}">
+    <link rel="stylesheet" href="{{asset('website/css/viewproduct.css')}}">
+    <link rel="stylesheet" href="{{asset('website/css/dashboard.css')}}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+@stop
+
+
+@section('content')
+
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="ima col-xs-12 col-sm-3 col-md-3">
+                <h1>Product Name</h1>
+                <img src="{{asset('website/images/artwork/http___cdn.cnn.com_cnnnext_dam_assets_190430171751-mona-lisa.jpg')}}" alt="image">
+            </div>
+
+
+            <div class="chart1 col-xs-8 col-sm-6 col-md-6">
+                <canvas id="myChart" style="width:100%;max-width:500px;min-height: 260px;"></canvas>
+
+                <script>
+                var xyValues = [
+                {x:50, y:7},
+                {x:60, y:8},
+                {x:70, y:8},
+                {x:80, y:9},
+                {x:90, y:9},
+                {x:100, y:9},
+                {x:110, y:10},
+                {x:120, y:11},
+                {x:130, y:14},
+                {x:140, y:14},
+                {x:150, y:15}
+                ];
+
+                new Chart("myChart", {
+                type: "scatter",
+                data: {
+                    datasets: [{
+                    pointRadius: 4,
+                    pointBackgroundColor: "rgb(0,0,255)",
+                    data: xyValues
+                    }]
+                },
+                options: {
+                    legend: {display: false},
+                    scales: {
+                    xAxes: [{ticks: {min: 40, max:160}}],
+                    yAxes: [{ticks: {min: 6, max:16}}],
+                    }
+                }
+                });
+                </script>
+            </div>
+
+
+            <div class="top-bidders col-xs-4 col-sm-3 col-md-3">
+                <div class="row">
+                    <h2>Top Bidders</h2>
+                </div>
+
+                <div class="row bidder-top">
+                    <div class="bidder-pic-name">
+                        <div class="col-xs-2 col-sm-2 col-md-2 bidder-pic" >
+                            <img src="{{asset('website/images/img_avatar.png')}}" alt="image">
+                        </div>
+                        <div class="col-xs-7 col-sm-7 col-md-7 bidder-name">
+                            <p>User Name</p>
+                        </div>
+                        <div class="col-xs-3 col-sm-3 col-md-3 bidder-name">
+                            <p>500 LE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+            <div class="col-xs-12 col-sm-9 col-md-9" id="de">
+              <div class="prod-id" hidden>
+                  <p>1</p>
+              </div>
+
+              <!-- before auctions start -->
+              <div class="time22" hidden>
+                    <p>Bid starts after</p>
+
+                    <p id="demo"></p>
+
+                    <script>
+                    // Set the date we're counting down to
+                    var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+
+                    // Update the count down every 1 second
+                    var x = setInterval(function() {
+
+                      // Get today's date and time
+                      var now = new Date().getTime();
+
+                      // Find the distance between now and the count down date
+                      var distance = countDownDate - now;
+
+                      // Time calculations for days, hours, minutes and seconds
+                      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                      // Output the result in an element with id="demo"
+                      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                      + minutes + "m " + seconds + "s ";
+                      document.getElementById("dem").innerHTML = days + "d " + hours + "h "
+                      + minutes + "m " + seconds + "s ";
+
+                      // If the count down is over, write some text
+                      if (distance < 0) {
+                        clearInterval(x);
+                        document.getElementById("demo").innerHTML = "EXPIRED";
+                        document.getElementById("dem").innerHTML = "EXPIRED";
+                      }
+                    }, 1000);
+                    </script>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 startingdatetime">
+                        <p>Starting Date :  <span class="condspan">5 - 10 - 2023</span></p>
+                        <P>Starting Time :  <span class="condspan">18:00</span></P>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6  endingdatetime">
+                        <p>Ending Date :  <span class="condspan">6 - 10 - 2023</span></p>
+                        <P>Ending Time :  <span class="condspan">18:00</span></P>
+                    </div>
+              </div>
+
+            <!-- after -->
+              <div class="place-bid">
+                <h3>Place Your Bid</h3>
+                <form action="">
+                    <input type="number" inputmode="numeric" placeholder="LE" id="bid-val">
+                    <input type="submit" id="add" value="Place Bid">
+                </form>
+                <div class="deta">
+                    <p id="high">Highest Bid: 500 LE</p>
+                    <p id="yours">Your Latest Bid: 500 LE</p>
+                    <p>Remaining Time:</p>
+                    <p id="dem" style="display: inline;"></p>
+                </div>
+
+              </div>
+
+
+
+            </div>
+
+
+    </div>
+
+
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col-xs-12 col-sm-12 col-md-12 active middleBlock" id="boughtproducts">
+          <h2>Recommended Products</h2>
+          <!-- products div is where products will be added -->
+            <div class="col-xs-12 col-sm-12 col-md-12 products">
+              <!-- product 1 -->
+              <div class="col-xs-3 col-sm-3 col-md-3 prod">
+                <div class="row">
+                  <!-- product photo -->
+                  <div class="col-xs-12 col-sm-2 col-md-2 photo">
+                    <img src="{{asset('website/images/ship/211223182650-04-storylines-residential-cruise-ship-concept.jpg')}}" alt="photo">
+                  </div>
+                  <!-- product info -->
+                  <div class="col-xs-12 col-sm-8 col-md-8 prodinfo">
+                    <div class="title">
+                      <a href=""><h2>Product Name</h2></a>
+                    </div>
+                    <div class="description hidden">
+                      <p>This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.</p>
+                    </div>
+
+                    <!-- date time -->
+                    <div class="row datetime">
+                      <div class="col-xs-12 col-sm-12 col-md-12 cond">
+                        <p>Condition : <span class="condspan">Almost New</span></p>
+                        <p>No Items : <span class="condspan">1</span> </p>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6 startingdatetime">
+                        <p>Starting Date :  <span class="condspan"><br>5 - 10 - 2023</span></p>
+                        <P>Starting Time :  <span class="condspan"><br>18:00</span></P>
+                      </div>
+                      <div class="col-xs-12 col-sm-6 col-md-6  endingdatetime">
+                        <p>Ending Date :  <span class="condspan"><br>6 - 10 - 2023</span></p>
+                        <P>Ending Time :  <span class="condspan"><br>18:00</span></P>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- price -->
+                  <div class="col-xs-12 col-sm-12 col-md-12 price">
+                      <h3>500 LE</h3>
+                      <div class="row divbtn">
+                        <div class="col-xs-12 col-sm-12 col-md-12 btn">
+                          <button>View</button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>  <!-- end of product 1  -->
+
+               <!-- product 1 -->
+              <div class="col-xs-3 col-sm-3 col-md-3 prod">
+                <div class="row">
+                  <!-- product photo -->
+                  <div class="col-xs-12 col-sm-2 col-md-2 photo">
+                    <img src="{{asset('website/images/ship/211223182650-04-storylines-residential-cruise-ship-concept.jpg')}}" alt="photo">
+                  </div>
+                  <!-- product info -->
+                  <div class="col-xs-12 col-sm-8 col-md-8 prodinfo">
+                    <div class="title">
+                      <a href=""><h2>Product Name</h2></a>
+                    </div>
+                    <div class="description hidden">
+                      <p>This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.</p>
+                    </div>
+
+                    <!-- date time -->
+                    <div class="row datetime">
+                      <div class="col-xs-12 col-sm-12 col-md-12 cond">
+                        <p>Condition : <span class="condspan">Almost New</span></p>
+                        <p>No Items : <span class="condspan">1</span> </p>
+                      </div>
+                      <div class="col-xs-12 col-sm-5 col-md-5 startingdatetime">
+                        <p>Starting Date :  <span class="condspan"><br>5 - 10 - 2023</span></p>
+                        <P>Starting Time :  <span class="condspan"><br>18:00</span></P>
+                      </div>
+                      <div class="col-xs-12 col-sm-5 col-md-5  endingdatetime">
+                        <p>Ending Date :  <span class="condspan"><br>6 - 10 - 2023</span></p>
+                        <P>Ending Time :  <span class="condspan"><br>18:00</span></P>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- price -->
+                  <div class="col-xs-12 col-sm-2 col-md-2 price">
+                      <h3>500 LE</h3>
+                      <div class="row divbtn">
+                        <div class="col-xs-12 col-sm-12 col-md-12 btn">
+                          <button>View</button>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>  <!-- end of product 1  -->
+
+              <!-- product 1 -->
+              <div class="col-xs-3 col-sm-3 col-md-3 prod">
+                              <div class="row">
+                                <!-- product photo -->
+                                <div class="col-xs-12 col-sm-2 col-md-2 photo">
+                                  <img src="{{asset('website/images/ship/211223182650-04-storylines-residential-cruise-ship-concept.jpg')}}" alt="photo">
+                                </div>
+                                <!-- product info -->
+                                <div class="col-xs-12 col-sm-8 col-md-8 prodinfo">
+                                  <div class="title">
+                                    <a href=""><h2>Product Name</h2></a>
+                                  </div>
+                                  <div class="description hidden">
+                                    <p>This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.</p>
+                                  </div>
+
+                                  <!-- date time -->
+                                  <div class="row datetime">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 cond">
+                                      <p>Condition : <span class="condspan">Almost New</span></p>
+                                      <p>No Items : <span class="condspan">1</span> </p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6 startingdatetime">
+                                      <p>Starting Date :  <span class="condspan"><br>5 - 10 - 2023</span></p>
+                                      <P>Starting Time :  <span class="condspan"><br>18:00</span></P>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6 col-md-6  endingdatetime">
+                                      <p>Ending Date :  <span class="condspan"><br>6 - 10 - 2023</span></p>
+                                      <P>Ending Time :  <span class="condspan"><br>18:00</span></P>
+                                    </div>
+                                  </div>
+                                </div>
+                                <!-- price -->
+                                <div class="col-xs-12 col-sm-2 col-md-2 price">
+                                    <h3>500 LE</h3>
+                                    <div class="row divbtn">
+                                      <div class="col-xs-12 col-sm-12 col-md-12 btn">
+                                        <button>View</button>
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+              </div>  <!-- end of product 1  -->
+            </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+@stop
+@section('page-script')
+    <script src="{{asset('website/js/img-gallery.js')}}"></script>
+@stop

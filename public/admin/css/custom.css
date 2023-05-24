@@ -1,0 +1,16 @@
+/* .dataTables_filter{
+    display: none !important;
+} */
+
+th{
+    text-align: center !important;
+}
+
+.new_lectures{
+    padding: 10px 0;
+    margin: 20px 0;
+}
+
+.ltr{
+    direction: ltr !important
+}

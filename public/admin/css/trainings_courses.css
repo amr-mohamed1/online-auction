@@ -1,0 +1,3 @@
+.ui.multiple.search.dropdown, .ui.multiple.search.dropdown>input.search , .ui.selection.dropdown .menu>.item{
+    text-align: right;
+}

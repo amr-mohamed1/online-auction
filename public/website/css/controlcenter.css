@@ -1,0 +1,56 @@
+.div-par{
+    padding: 20px;
+}
+.div-ch{
+    background-image: url(../images/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-family: Mynerve;
+    font-weight: 900;
+    font-size: 130%;
+    border-radius: 20px;
+}
+
+.div-par a{
+    color: black;
+}
+
+.div-par a:hover{
+    color: rgb(61, 61, 61);
+    text-decoration: none;
+}
+.div-ch:hover{
+    background-image: url(../images/19742\ copy.jpg);
+}
+
+.div-ch .ch-im{
+    margin-left: auto;
+    margin-right: auto;
+}
+.ch-im img{
+    width: 80px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+@media(max-width:767px){
+    .div-par{
+        padding: 0px;
+        padding-bottom: 20px;
+    }
+    .div-ch{
+        width: 90%;
+        border-radius: 20px;
+        height: 120px;
+        overflow: hidden;
+    }
+    .ch-im img{
+        width: 60px;
+        margin-top: 20px;
+        margin-bottom: 5px;
+    }
+}

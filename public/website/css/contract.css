@@ -1,0 +1,83 @@
+#contract{
+    background-color: white;
+    width: 55%;
+    margin-top: -15px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: double ;
+    text-align: justify;
+
+}
+.title-head,.title-head2{
+    text-align: center;
+    text-transform: uppercase;
+}
+.title-head h1{
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.title-head2 h2{
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+.par-body{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h3.bolder-par{
+    font-size: 14px;
+    font-weight: bolder;
+    display: inline;
+}
+.online-auction{
+    font-weight: bolder;
+}
+p{
+    display: inline;
+}
+.sign{
+    font-weight: bold;
+    text-transform: capitalize;
+}
+h4{
+    font-size: 15px;
+    font-weight: bolder;
+    color: red;
+}
+
+.print-btn{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: Mynerve;
+    font-weight: 900;
+    color: white;
+}
+.print-btn button{
+    background-color: #6cb670;
+    width: 150px;
+    height: 30px;
+    border: none;
+    border-radius: 50px;
+}
+.print-btn button:hover{
+    background-color: #447c47;
+}
+
+@media(max-width:950px){
+    #contract{
+        width: 70%;    
+    }
+}
+@media(max-width:745px){
+    #contract{
+        width: 80%;    
+    }
+}
+@media(max-width:600px){
+    #contract{
+        width: 100%;    
+    }
+}

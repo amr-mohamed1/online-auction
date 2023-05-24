@@ -1,0 +1,322 @@
+body{
+    background-image: url(../images/hand-painted-watercolor-pastel-sky-background_23-2148902771.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#home{
+    color: #9d9d9d;
+}
+#home:hover{
+    color: #ffff;
+}
+#upload{
+    color: #9d9d9d;
+}
+#upload:hover{
+    color: #ffff;
+}
+.chart1{
+    margin-left: 0px;
+    height: 320px;
+}
+#myChart{
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 55px;
+}
+
+.ima{
+    text-align: left;
+
+}
+.ima h1{
+    font-size: 200%;
+}
+.ima{
+    overflow: hidden;
+    height: 320px;
+    text-align: center;
+    padding-top: 0px;
+    overflow: hidden;
+}
+
+.ima img{
+    height: 250px;
+    width: 75%;
+}
+
+.top-bidders{
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 520px;
+    overflow: auto;
+}
+
+.top-bidders h2{
+    font-size: 200%;
+    text-align: center;
+}
+
+
+.bidder-top .bidder-pic-name img{
+    width: 40px;
+    border-radius: 50%;
+    display: inline;
+}
+.bidder-top .bidder-pic-name .bidder-pic{
+    height: 40px;
+}
+.bidder-top .bidder-pic-name .bidder-name{
+    padding: 10px;
+    height: 40px;
+}
+.bidder-top .bidder-pic-name .bidder-name p{
+    font-size: 120%;
+}
+
+
+#de{
+    margin-top: -200px;
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 69%;
+    margin-left: 38px;
+    height: 200px;
+    padding: 20px;
+}
+
+.time22 p ,#demo{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 0px;
+}
+.place-bid h3{
+    margin-bottom: 30px;
+}
+#bid-val{
+    border: none;
+    width: 200px;
+    height: 30px;
+    padding-left: 10px;
+    border-radius: 10px;
+}
+#add{
+    width: 100px;
+    display: block;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+.deta{
+    float: right;
+    margin-top: -125px;
+}
+#high,#yours{
+    font-size: 20px;
+}
+
+@media(max-width:1158px){
+
+    .ima h1{
+        font-size: 180%;
+    }
+
+    .ima img{
+        width: 90%;
+    }
+    #de{
+        margin-left: 14px;
+        width: 72%;
+    }
+
+}
+
+@media(max-width:1142px){
+
+    .top-bidders h2{
+        font-size: 180%;
+    }
+
+    .bidder-top .bidder-pic-name img{
+        width: 35px;
+    }
+
+    .bidder-top .bidder-pic-name .bidder-name{
+        padding: 10 px;
+    }
+    .bidder-top .bidder-pic-name .bidder-name p{
+        font-size: 110%;
+    }
+
+}
+
+
+@media(max-width:1073px){
+
+    .top-bidders h2{
+        font-size: 170%;
+    }
+
+    .bidder-top .bidder-pic-name img{
+        width: 30px;
+    }
+
+    .bidder-top .bidder-pic-name .bidder-name{
+        padding: 9px;
+    }
+    .bidder-top .bidder-pic-name .bidder-name p{
+        font-size: 100%;
+    }
+
+}
+
+@media(max-width:1000px){
+    .ima h1{
+        font-size: 180%;
+    }
+
+    .ima img{
+        width: 100%;
+    }
+    #de{
+        margin-left: 0px;
+    }
+}
+
+@media(max-width:973px){
+
+    .top-bidders h2{
+        font-size: 160%;
+    }
+
+    .bidder-top .bidder-pic-name img{
+        width: 28px;
+    }
+
+    .bidder-top .bidder-pic-name .bidder-name{
+        padding: 6px;
+        padding-right: 0px;
+    }
+    .bidder-top .bidder-pic-name .bidder-name p{
+        font-size: 95%;
+    }
+
+}
+
+@media(max-width:923px){
+
+
+    .bidder-top .bidder-pic-name img{
+        width: 26px;
+    }
+
+    .bidder-top .bidder-pic-name .bidder-name{
+        padding-left: 8px;
+    }
+
+
+}
+
+@media(max-width:900px){
+    .chart1{
+        margin-left: 0px;
+        height: 320px;
+
+    }
+    #myChart{
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 55px;
+        height: 260px;
+    }
+}
+
+@media(max-width:830px){
+
+    .top-bidders h2{
+        font-size: 160%;
+    }
+
+    .bidder-top .bidder-pic-name img{
+        width: 26px;
+    }
+
+    .bidder-top .bidder-pic-name .bidder-name{
+        padding: 6px;
+        padding-right: 0px;
+        padding-left: 10px;
+    }
+    .bidder-top .bidder-pic-name .bidder-name p{
+        font-size: 90%;
+    }
+
+}
+@media(max-width:776px){
+
+    .top-bidders h2{
+        font-size: 140%;
+    }
+
+    .bidder-top .bidder-pic-name img{
+        width: 23px;
+    }
+
+    .bidder-top .bidder-pic-name .bidder-name{
+        padding-left: 10px;
+        padding-top: 4px;
+    }
+    .bidder-top .bidder-pic-name .bidder-name p{
+        font-size: 88%;
+    }
+
+}
+
+@media (max-width:767px) {
+    #de{
+        margin-top: 0px;
+        width: 100%;
+        margin-left: 0px;
+        height: 200px;
+    }
+    .top-bidders{
+        height: 320px;
+        margin-bottom: 20px;
+    }
+}
+@media (max-width:550px) {
+    #de{
+        margin-top: 0px;
+        width: 100%;
+        margin-left: 0px;
+        min-height: 350px;
+        text-align: center;
+        height:fit-content ;
+        overflow: hidden;
+    }
+    #add{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+    .deta{
+        float: none;
+        text-align: center;
+        text-align: center;
+        margin-top: 30px;
+    }
+    #high,#yours{
+        font-size: 20px;
+        text-align: center;
+
+    }
+
+}
+
+@media(max-width:448px){
+    .chart1{
+        margin-left: 0px;
+        width: 71%;
+        margin-left: -20px;
+    }
+}

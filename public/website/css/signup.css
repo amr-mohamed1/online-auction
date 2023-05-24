@@ -1,0 +1,208 @@
+#signup{
+    color: #ff00bf;
+}
+#home{
+    color: #9d9d9d;
+}
+#home:hover{
+    color: white;
+}
+body{
+    background-color: rgb(231, 231, 231);
+}
+#d1{
+    background-image: url(../images/d1-bg.jpg);
+    background-repeat: no-repeat;
+    background-size: 500px;
+    height: 520px;
+    text-align: center;
+    color: white;
+    font-family: Roboto;
+    padding-top: 0px;
+    overflow: hidden;
+    box-shadow: 0px 4px 6px 5px #00000028;
+
+}
+#d1 p {
+    font-family: Mynerve;
+    font-weight: 600;
+    font-size: 110%;
+}
+#d1 img{
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 82%;
+}
+#d1 h2{
+    font-size: 120%;
+}
+#d1 button{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #69ff6e;
+    border: none;
+    border-radius: 100px;
+    width: 50%;
+    margin-top: 10px;
+    font-family: Mynerve;
+    font-weight: 600;
+    font-size: 130%;
+    box-shadow: 0px 4px 6px 5px #00000028;
+}
+#d1 button:hover{
+    background-color: #32ff39;
+    box-shadow: 0px 4px 6px 5px #00330262;
+
+}
+#d2,#d3{
+    height: 460px;
+    margin-top: 30px;
+    text-align: center;
+    color: white;
+    font-family: Roboto;
+    padding-top: 0px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 4px 6px 5px #00000028;
+}
+#d2{
+    background-color: #01bccf;
+}
+#d2 h2, #d3 h2{
+    font-size: 180%;
+}
+#d2 p, #d3 p{
+    font-family: Mynerve;
+    font-weight: 400;
+    font-size: 120%;
+    margin-left: 10px;
+}
+#d2 img, #d3 img{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    width: 90%;
+}
+#d2 a, #d3 a{
+    color: rgb(226, 226, 226);
+    font-family: Mynerve;
+    font-weight: 500;
+    font-size: 120%;
+    display: block;
+    margin-bottom: 20px;
+}
+#d2 a:hover, #d3 a:hover{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-family: Mynerve;
+    font-weight: 600;
+    font-size: 120%;
+}
+#d2 button, #d3 button{
+    border: none;
+    border-radius: 100px;
+    overflow: hidden;
+    color: #01bccf;
+    background-color: rgb(228, 228, 228);
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    font-family: Mynerve;
+    font-weight: 700;
+    font-size: 130%;
+    box-shadow: 0px 4px 6px 5px #00000028;
+
+}
+#d3 button{
+    color: #16c068;
+}
+#d2 button:hover{
+    color: white;
+    background-color: #aa499a;
+    box-shadow: 0px 4px 6px 5px #002b3362;
+}
+#d3 button:hover{
+    color: white;
+    background-color: #aa499a;
+    box-shadow: 0px 4px 6px 5px #002b3362;
+}
+#d3{
+    background-color: #16c068;
+}
+
+@media (max-width:991px) {
+    #d1{
+        height: 420px;
+    }
+    #d2 h2, #d3 h2{
+        font-size: 140%;
+    }
+    #d2 p, #d3 p{
+        font-size: 90%;
+    }
+    #d2 a, #d3 a{
+        font-size: 100%;
+    }
+    #d2 img, #d3 img{
+        width: 80%;
+    }
+    #d2{
+        margin-right: 50px;
+    }
+    #d2,#d3{
+        height: 360px;
+    }
+}
+@media (max-width:767px) {
+
+    #d2, #d3{
+        background-image: url(../images/d1-bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 600px;
+    }
+    #d2 h2, #d3 h2{
+        font-size: 180%;
+    }
+    #d2 p, #d3 p{
+        font-size: 130%;
+    }
+    #d2 img, #d3 img{
+        width: 50%;
+    }
+    #d2 button, #d3 button{
+        width: 50%;
+        font-size: 180%;
+    }
+
+
+}
+@media (max-width:630px) {
+    #d2, #d3{
+        height: 500px;
+    }
+}
+@media (max-width:480px) {
+    #d2, #d3{
+        height: 450px;
+    }
+    #d2 button, #d3 button{
+        width: 70%;
+        font-size: 150%;
+    }
+}
+@media (max-width:320px) {
+    #d2, #d3{
+        height: 400px;
+    }
+}
+@media (max-width:320px) {
+    #d2, #d3{
+        height: 350px;
+    }
+    #d2 button, #d3 button{
+        width: 90%;
+        font-size: 120%;
+    }
+}
