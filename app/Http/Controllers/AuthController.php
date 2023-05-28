@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PasswordReset;
 use App\Models\User;
 use App\Traits\UploadImages;
 use Illuminate\Http\Request;
@@ -136,4 +137,44 @@ class AuthController extends Controller
         toastr()->error('Please Check Your Credentials');
         return redirect()->route('site_login');
     }
+
+    public function send_reset_code(Request $request){
+        $request->validate([
+            'email'     => 'required|exists:users,email',
+        ]);
+
+        try{
+            PasswordReset::create([
+                'email'     => $request->email,
+                'token'     => rand(000000,999999),
+                'created_at'    => date('Y-m-d H-i-s')
+            ]);
+            toastr()->success('Reset Token Send To Mail Successfully');
+        }catch(\Exception $ex){
+            toastr()->error($ex->getMessage());
+        }
+        return redirect()->route('confirm_password');
+    }
+
+    public function reset_password(Request $request){
+        $request->validate([
+            'email'     => 'required|exists:users,email',
+            'code'      => 'required|numeric',
+            'password'                          => ['required', 'string', 'min:8','confirmed'],
+            'password_confirmation'             => ['required'],
+        ]);
+        try{
+            $found_user = PasswordReset::where('email',$request->email)->count();
+            if($found_user > 0){
+                User::where('email',$request->email)->update(['password'=> Hash::make($request->password)]);
+                PasswordReset::where('email',$request->email)->delete();
+                toastr()->success('Password Reset Successfully');
+                return redirect()->route('site_login');
+            }
+        }catch (\Exception $ex){
+            toastr()->error($ex->getMessage());
+        }
+        return redirect()->back();
+
+        }
 }

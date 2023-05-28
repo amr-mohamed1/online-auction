@@ -16,10 +16,14 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Home Number</th>
+                                <th>Country</th>
                                 <th>City</th>
-                                <th>Area</th>
+                                <th>Address</th>
+                                <th>Postal Code</th>
+                                <th>Digital Signature</th>
+                                <th>Gender</th>
                                 <th>Type</th>
-                                <th>Category</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
@@ -28,13 +32,17 @@
                         @foreach($users as $user)
                             <tr>
                                 <td>{{$user->id}}</td>
-                                <td>{{$user->name}}</td>
+                                <td>{{$user->first_name . " " . $user->last_name}}</td>
                                 <td>{{$user->email}}</td>
                                 <td>{{$user->phone}}</td>
-                                <td>{{$user->cities->name}}</td>
-                                <td>{{$user->areas->name}}</td>
+                                <td>{{$user->home_number}}</td>
+                                <td>{{$user->country}}</td>
+                                <td>{{$user->city}}</td>
+                                <td>{{$user->address}}</td>
+                                <td>{{$user->postal_code}}</td>
+                                <td>{{$user->digital_signature}}</td>
+                                <td>{{$user->gender}}</td>
                                 <td>{{$user->type}}</td>
-                                <td>{{$user->category ?? "-"}}</td>
                                 <td>{{$user->created_at}}</td>
                                 <td>
                                     @if($user->status == 1)

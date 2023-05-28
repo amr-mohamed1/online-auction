@@ -17,28 +17,13 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        \App\Models\City::create([
-            'name'         => 'Cairo',
-        ]);
-
-        \App\Models\Area::create([
-            'name'         => 'Test Account',
-            'city_id'      => 1
-        ]);
-
          \App\Models\User::create([
-             'name'         => 'Test Account',
-             'email'        => 'admintest@gmail.com',
-             'phone'        => '01234567895',
-             'city_id'      => 1,
-             'area_id'      => 1,
-             'password'     => '$2y$10$RYRxAxkN.ifPjKVadb9fFOY8orKb/glpvquGZgcscf5ackHyD2pR2',
-             'type'         => 'admin'
+             'first_name'           => 'Test Account',
+             'last_name'            => 'Test Account',
+             'email'                => 'Test Account',
+             'password'             => '$2y$10$RYRxAxkN.ifPjKVadb9fFOY8orKb/glpvquGZgcscf5ackHyD2pR2',
+             'type'                 => 'admin'
          ]);
 
-         Speciality::create([
-             'name'         => 'Carbenter',
-             'img'         => '690background.jpg',
-         ]);
     }
 }

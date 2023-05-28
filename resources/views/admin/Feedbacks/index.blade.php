@@ -13,9 +13,6 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>User Name</th>
-                                <th>Specialist Name</th>
-                                <th>Show User Info</th>
                                 <th>Comment</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
@@ -25,10 +22,7 @@
                         @foreach($Feedbacks as $feedback)
                             <tr>
                                 <td>{{$feedback->id}}</td>
-                                <td>{{$feedback->user->name}}</td>
-                                <td>{{$feedback->specialist->name}}</td>
-                                <td>{{$feedback->show_user_info == 1 ? "Yes" : "No"}}</td>
-                                <td>{{$feedback->comment}}</td>
+                                <td>{{$feedback->description}}</td>
                                 <td>{{$feedback->created_at}}</td>
                                 <td>
                                     <a id="deleteButton" feedback-id="{{$feedback->id}}" class="delete btn btn-danger btn-sm"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>

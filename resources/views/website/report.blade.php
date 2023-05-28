@@ -1,5 +1,5 @@
 @extends('layout.website.master')
-@section('title', 'Profile')
+@section('title', 'Report User')
 
 @section('page-styles')
     <link rel="stylesheet" href="{{asset('website/css/navbarlogged.css')}}">
@@ -61,12 +61,21 @@
         <div class="row">
 
             <div class="col-xs-12 col-sm-12 col-md-12 div-report" id="re">
+                <form action="{{route('store-report-request')}}" method="POST">
+                    @csrf
                 <div class="uname">
                     <label for="user">Reported User</label>
-                    <input type="text" id="user">
-                    <textarea name="" id="" cols="100" rows="8" style="resize: none;" ></textarea>
-                    <button>Report</button>
+                    <input type="text" name="user" value="{{ old('user') }}" id="user">
+                    @error('user')
+                    <p class="help text-danger">{{ $message }}</p>
+                    @enderror
+                    <textarea id="" name="description" cols="100" rows="8" style="resize: none;" >{{ old('description') }}</textarea>
+                    @error('description')
+                    <p class="help text-danger">{{ $message }}</p>
+                    @enderror
+                    <button type="submit">Report</button>
                 </div>
+                </form>
             </div>
 
         </div>

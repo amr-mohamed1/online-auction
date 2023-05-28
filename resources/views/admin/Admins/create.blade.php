@@ -17,7 +17,7 @@
                 @include('includes._leavePage')
                 {{-- ============= End Leave Page Alert Model ============== --}}
 
-                {{-- ============= start Create City form ============== --}}
+                {{-- ============= start Create Admin form ============== --}}
                 <form class="validate-form" action="{{ route('admin.admin.store') }}" method="POST" novalidate>
                     @csrf
                     <div class="clearfix row">
@@ -25,11 +25,23 @@
                         {{-- ======================== Admin Name ========================= --}}
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label>Admin Name</label>
+                                <label>Admin First Name</label>
                                 <input type="text" class="form-control"
-                                       placeholder="Admin Name: " name="name"
-                                       value="{{ old('name') }}" required>
-                                @error('name')
+                                       placeholder="Admin First Name: " name="first_name"
+                                       value="{{ old('first_name') }}" required>
+                                @error('first_name')
+                                <p class="help text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- ======================== Admin Name ========================= --}}
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Admin Last Name</label>
+                                <input type="text" class="form-control"
+                                       placeholder="Admin Last Name: " name="last_name"
+                                       value="{{ old('last_name') }}" required>
+                                @error('last_name')
                                 <p class="help text-danger">{{ $message }}</p>
                                 @enderror
                             </div>
@@ -48,20 +60,7 @@
                             </div>
                         </div>
 
-                        {{-- ======================== Admin phone ========================= --}}
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Phone</label>
-                                <input type="text" class="form-control"
-                                       placeholder="Phone: " name="phone"
-                                       value="{{ old('phone') }}" required>
-                                @error('phone')
-                                <p class="help text-danger">{{ $message }}</p>
-                                @enderror
-                            </div>
-                        </div>
-
-                        {{-- ======================== Admin password ========================= --}}
+                        {{-- ======================== Admin Password ========================= --}}
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Password</label>
@@ -74,10 +73,6 @@
                             </div>
                         </div>
 
-                        {{-- =========== Start Dropdown Scripts ============ --}}
-                        {{-- TODO-> include the blade that have city_id and area_id dropdown Lists --}}
-                        @include('includes._create_area_city_dropdown')
-
                     </div>
                     <button type="submit" class="btn btn-round btn-primary">Save</button>
                     &nbsp;&nbsp;
@@ -86,7 +81,7 @@
                         Leave
                     </button>
                 </form>
-                {{-- ============= End Create City form ============== --}}
+                {{-- ============= End Create Admin form ============== --}}
 
             </div>
         </div>
@@ -96,18 +91,10 @@
 @stop
 
 @section('page-styles')
-    <link rel="stylesheet" type="text/css" href="{{asset('css/semantic.min.css')}}">
 
 @stop
 
 @section('page-script')
-    <script>
-        get_Area_route = '{{route("admin.admin.get_area")}}'
-    </script>
-{{-- TODO-> import area_city script to handel dropdown List --}}
-<script src="{{asset('admin/js/area_city_dropdown.js')}}"></script>
-<script src="{{asset('js/semantic.min.js')}}"></script>
-<script src="{{asset('js/dropdown.js')}}"></script>
-<script src="{{asset('admin/js/prevent_leave.js')}}"></script>
-<script src="{{ asset('admin/assets/bundles/mainscripts.bundle.js') }}"></script>
+    <script src="{{asset('admin/js/prevent_leave.js')}}"></script>
+    <script src="{{ asset('admin/assets/bundles/mainscripts.bundle.js') }}"></script>
 @stop

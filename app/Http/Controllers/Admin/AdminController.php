@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Area;
 use App\Models\City;
 use App\Models\Logs;
@@ -9,6 +10,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use function redirect;
+use function toastr;
+use function view;
 
 class AdminController extends Controller
 {
@@ -30,9 +34,7 @@ class AdminController extends Controller
      */
     public function create()
     {
-        $cities = City::get();
-        $areas = Area::get();
-        return view('admin.Admins.create',compact('cities','areas'));
+        return view('admin.Admins.create');
     }
 
     /**
@@ -44,21 +46,17 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'      => 'required|min:3',
+            'first_name'      => 'required|min:3',
+            'last_name'       => 'required|min:3',
             'email'     => 'required|unique:users',
-            'phone'     => 'required',
             'password'  => 'required',
-            'city_id'   => 'required|exists:cities,id',
-            'area_id'   => 'required|exists:areas,id',
         ]);
         try{
             User::create([
-                'name'      => $request->name,
+                'first_name'      => $request->first_name,
+                'last_name'       => $request->last_name,
                 'email'     => $request->email,
-                'phone'     => $request->phone,
                 'password'  => Hash::make($request->password),
-                'city_id'   => $request->city_id,
-                'area_id'   => $request->area_id,
                 'type'      => 'admin'
             ])->log('Create');
             toastr()->success('Admin Added Successfully');
@@ -93,12 +91,9 @@ class AdminController extends Controller
     {
         try {
             $admin = User::where('type','admin')->where('id',$id)->first();
-            $cities = City::all();
-            $city_areas             = Area::where('city_id',$admin->city_id)->get();
-            return view('admin.Admins.edit',compact('admin','cities','city_areas'));
+            return view('admin.Admins.edit',compact('admin',));
         } catch (\Exception $ex) {
-            return $ex;
-            toastr()->error('Admin You Want to edit not found');
+            toastr()->error($ex->getMessage());
             return redirect()->route('admin.admin.index');
         }
     }
@@ -112,12 +107,10 @@ class AdminController extends Controller
     public function update(Request $request, User $admin)
     {
         $request->validate([
-            'name'      => 'required|min:3',
+            'first_name'      => 'required|min:3',
+            'last_name'       => 'required|min:3',
             'email'     => 'required',
-            'phone'     => 'required',
             'password'  => 'required',
-            'city_id'   => 'required|exists:cities,id',
-            'area_id'   => 'required|exists:areas,id',
         ]);
         try {
             if(isset($request->password)){
@@ -126,13 +119,10 @@ class AdminController extends Controller
                 $new_password = $admin->password;
             }
             $admin->update([
-                'name'      => $request->name,
+                'first_name'      => $request->first_name,
+                'last_name'       => $request->last_name,
                 'email'     => $request->email,
-                'phone'     => $request->phone,
                 'password'  => $new_password,
-                'city_id'   => $request->city_id,
-                'area_id'   => $request->area_id,
-                'type'      => 'admin'
             ]);
             Logs::create([
                 'user_id'           => Auth::user()->id ?? 1,

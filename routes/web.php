@@ -1,16 +1,19 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FeedbackController;
+use App\Http\Controllers\Admin\ReportUserController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AreaController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ContactUsController;
-use App\Http\Controllers\FeedBackController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RateController;
+use App\Http\Controllers\SellCenterController;
 use App\Http\Controllers\SpecialityController;
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,9 +36,7 @@ Route::get('/about', function () {
     return view('website.about');
 })->name('about');
 
-Route::get('/auctions', function () {
-    return view('website.auctions');
-})->name('auctions');
+Route::get('/auctions', [\App\Http\Controllers\CategoryController::class,'all_categories'])->name('auctions');
 
 Route::get('/site_login', function () {
     return view('website.login');
@@ -68,17 +69,11 @@ Route::get('/homepage', function () {
     return view('website.homepage');
 })->name('homepage');
 
-Route::get('/sellcenter', function () {
-    return view('website.sellcenter');
-})->name('sellcenter');
+Route::get('/sellcenter',[SellCenterController::class,'index'])->name('sellcenter');
 
-Route::get('/all_products', function () {
-    return view('website.all_products');
-})->name('all_products');
+Route::get('/all_products/{id}',[\App\Http\Controllers\CategoryController::class,'get_category_products'])->name('all_products');
 
-Route::get('/product', function () {
-    return view('website.product');
-})->name('product');
+Route::get('/product/{id}',[\App\Http\Controllers\CategoryController::class,'product_date'])->name('product');
 
 Route::get('/product_dashboard', function () {
     return view('website.product_dashboard');
@@ -105,6 +100,14 @@ Route::get('/report-user', function () {
 })->name('report-user');
 
 
+Route::post('/store_product',[SellCenterController::class,'store_product'])->name('store_product');
+Route::post('/store-report-request',[ReportUserController::class,'store'])->name('store-report-request');
+Route::post('/store-feedback',[FeedbackController::class,'store'])->name('store-feedback');
+Route::post('/send_reset_code',[AuthController::class,'send_reset_code'])->name('send_reset_code');
+Route::post('/reset_user_password',[AuthController::class,'reset_password'])->name('reset_user_password');
+
+
+
 Route::middleware('auth')->group(function () {
     Route::group(['prefix' => 'admin_dashboard', 'as' => 'admin.'], function () {
         Route::get('/', function () {
@@ -120,38 +123,21 @@ Route::middleware('auth')->group(function () {
 
         /*
         |--------------------------------------------------------------------------
-        | Blogs Routes
+        | Categories Routes
         |--------------------------------------------------------------------------
         */
-        Route::resource('blogs',BlogController::class);
-        Route::Post('/blogs/delete', [BlogController::class, 'delete'])->name('blogs.delete');
+        Route::resource('categories',CategoryController::class);
+        Route::post('/categories/delete',[CategoryController::class,'delete'])->name('categories.delete');
 
 
         /*
         |--------------------------------------------------------------------------
-        | Cities Routes
+        | Reports Routes
         |--------------------------------------------------------------------------
         */
-        Route::resource('cities',CityController::class);
-        Route::Post('/cities/delete', [CityController::class, 'delete'])->name('cities.delete');
+        Route::get('/all-reports',[ReportUserController::class,'index'])->name('all-reports');
+        Route::post('/all-reports/delete',[ReportUserController::class,'delete'])->name('all-reports.delete');
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | Areas Routes
-        |--------------------------------------------------------------------------
-        */
-        Route::resource('areas',AreaController::class);
-        Route::post('/areas/delete',[AreaController::class,'delete'])->name('areas.delete');
-
-
-        /*
-        |--------------------------------------------------------------------------
-        | Areas Routes
-        |--------------------------------------------------------------------------
-        */
-        Route::resource('specialities',SpecialityController::class);
-        Route::post('/specialities/delete',[SpecialityController::class,'delete'])->name('specialities.delete');
 
 
         /*

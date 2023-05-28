@@ -1,6 +1,6 @@
 @extends('layout.admin.master')
 @section('parentPageTitle', 'Dashboard')
-@section('title', 'Speciality')
+@section('title', 'Categories')
 
 @section('content')
 
@@ -10,9 +10,9 @@
             <div class="header my-3 mb-4">
                 <ul class="header-dropdown dropdown">
                     <li>
-                        <a href="{{route('admin.specialities.create')}}" class="text-white btn btn-primary"><i
+                        <a href="{{route('admin.categories.create')}}" class="text-white btn btn-primary"><i
                                 class="mx-1 icon-plus"></i>
-                            Add Speciality
+                            Add Category
                         </a>
                     </li>
                 </ul>
@@ -30,16 +30,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($specialities as $speciality)
+                        @foreach($categories as $category)
                             <tr>
-                                <td>{{$speciality->id}}</td>
-                                <td>{{$speciality->name}}</td>
-                                <td><img src="{{asset($speciality->image_path)}}" width="100px" height="100px" alt="Speciality Image"></td>
-                                <td>{{$speciality->created_at}}</td>
+                                <td>{{$category->id}}</td>
+                                <td>{{$category->name}}</td>
+                                <td><img src="{{asset($category->image_path)}}" width="100px" height="100px" alt="Speciality Image"></td>
+                                <td>{{$category->created_at}}</td>
                                 <td>
-                                    <a href="{{Route('admin.specialities.edit', $speciality->id)}}"  class="edit btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
+                                    <a href="{{Route('admin.categories.edit', $category->id)}}"  class="edit btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>
 
-                                    <a id="deleteButton" speciality-id="{{$speciality->id}}" class="delete btn btn-danger btn-sm"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>
+                                    <a id="deleteButton" category-id="{{$category->id}}" class="delete btn btn-danger btn-sm"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -51,7 +51,7 @@
     </div>
 </div>
 
-@include('includes._deleteModel',['delete_route' => 'admin.specialities.delete','delete_title' => 'Delete Specialities','delete_message' => 'are you sure about deleting this Speciality'])
+@include('includes._deleteModel',['delete_route' => 'admin.categories.delete','delete_title' => 'Delete Categories','delete_message' => 'are you sure about deleting this Category'])
 
 @stop
 
@@ -61,7 +61,7 @@
 @section('page-script')
     <script>
         $("#table_id tbody").on('click', '#deleteButton', function() {
-            var id = $(this).attr('speciality-id');
+            var id = $(this).attr('category-id');
             $('#deleted_id').val(id);
         })
 

@@ -33,31 +33,13 @@
 
 
 
-                {{-- ============================ locations ============================== --}}
-                <li class="{{ Request::segment(2) === 'cities' || Request::segment(2) === 'areas' ? 'active open' : null }}">
-                    <a href="#Project" class="has-arrow {{ Request::segment(2) === 'cities' ? 'active' : null }}"><i class="far fa-map-marked-alt"></i><span>Locations</span></a>
-                    <ul>
-                         {{-- ============================ cities page ============================== --}}
-                        <li class=" {{ Request::segment(2) === 'cities' ? 'active' : null }}"><a  href="{{route('admin.cities.index')}}"><span>Cities</span></a></li>
-
-                        {{-- ============================ areas page ============================== --}}
-                        <li class=" {{ Request::segment(2) === 'areas' ? 'active' : null }}"><a  href="{{route('admin.areas.index')}}"><span>Areas</span></a></li>
-                    </ul>
-                </li>
-
-
-                {{-- ============================ blogs page ============================== --}}
-                <li class=" {{ Request::segment(2) === 'blogs' ? 'active' : null }}"><a  href="{{route('admin.blogs.index')}}"><i class="fal fa-newspaper"></i><span>Blogs</span></a></li>
-
-
-
                 {{-- ============================ specialities page ============================== --}}
                 <li class=" {{ Request::segment(2) === 'orders' ? 'active' : null }}"><a  href="{{route('admin.orders.index')}}"><i class="far fa-shipping-fast"></i><span>Orders</span></a></li>
 
 
 
-                {{-- ============================ specialities page ============================== --}}
-                <li class=" {{ Request::segment(2) === 'specialities' ? 'active' : null }}"><a  href="{{route('admin.specialities.index')}}"><i class="far fa-user-hard-hat"></i><span>Specialities</span></a></li>
+                {{-- ============================ Categories page ============================== --}}
+                <li class=" {{ Request::segment(2) === 'categories' ? 'active' : null }}"><a  href="{{route('admin.categories.index')}}"><i class="far fa-user-hard-hat"></i><span>Categories</span></a></li>
 
 
 
@@ -69,8 +51,8 @@
                 <li class=" {{ Request::segment(2) === 'feedbacks' ? 'active' : null }}"><a  href="{{route('admin.feedbacks.index')}}"><i class="far fa-comments-alt"></i><span>Feedbacks</span></a></li>
 
 
-                {{-- ============================ feedbacks page ============================== --}}
-                <li class=" {{ Request::segment(2) === 'contact_us' ? 'active' : null }}"><a  href="{{route('admin.contact_us.index')}}"><i class="far fa-inbox-in"></i><span>Contact Us</span></a></li>
+                {{-- ============================ reports page ============================== --}}
+                <li class=" {{ Request::segment(2) === 'all-reports' ? 'active' : null }}"><a  href="{{route('admin.all-reports')}}"><i class="far fa-inbox-in"></i><span>Reported Users</span></a></li>
 
 
             </ul>

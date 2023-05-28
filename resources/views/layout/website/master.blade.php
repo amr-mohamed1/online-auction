@@ -124,14 +124,12 @@
     </div>
 
     <div class="row">
-
-        <div class="col-xs-12 col-sm-12 col-md-6" id="fe">
-            <form action="" method="post">
+        <div class="col-md-6 mb-5 pb-5" id="fe">
+            <form action="{{route('store-feedback')}}" method="post">
+                @csrf
                 <h3>Give Feedback</h3>
-                <textarea name="feedback" id="feedback" cols="70" rows="5"></textarea>
-                <div class="col-xs-12 hidden-sm hidden-md hidden-lg hidden-xl">
-                    <input type="submit" name="feed" id="feedbutton" onclick="window.location.href='html/Login.html'">
-                </div>
+                <textarea name="description" id="feedback" cols="70" rows="3"></textarea>
+                <input type="submit" name="feed" id="feedbutton">
             </form>
         </div>
     </div>

@@ -1,6 +1,6 @@
 @extends('layout.admin.master')
 @section('parentPageTitle', 'Dashboard')
-@section('title', 'Contact Us')
+@section('title', 'Reports')
 
 @section('content')
 
@@ -14,26 +14,20 @@
                             <tr>
                                 <th>#</th>
                                 <th>User Name</th>
-                                <th>User Email</th>
-                                <th>User Phone</th>
-                                <th>Title</th>
-                                <th>description</th>
+                                <th>Descriptions</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($messages as $message)
+                        @foreach($reports as $report)
                             <tr>
-                                <td>{{$message->id}}</td>
-                                <td>{{$message->user->name}}</td>
-                                <td>{{$message->user->email}}</td>
-                                <td>{{$message->user->phone}}</td>
-                                <td>{{$message->title}}</td>
-                                <td>{{$message->description}}</td>
-                                <td>{{$message->created_at}}</td>
+                                <td>{{$report->id}}</td>
+                                <td>{{$report->user_name}}</td>
+                                <td>{{$report->description}}</td>
+                                <td>{{$report->created_at}}</td>
                                 <td>
-                                    <a id="deleteButton" message-id="{{$message->id}}" class="delete btn btn-danger btn-sm"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>
+                                    <a id="deleteButton" report-id="{{$report->id}}" class="delete btn btn-danger btn-sm"  data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
@@ -45,7 +39,7 @@
     </div>
 </div>
 
-@include('includes._deleteModel',['delete_route' => 'admin.contact_us.delete','delete_title' => 'Delete Messages','delete_message' => 'are You Sure about Deleting This Message'])
+@include('includes._deleteModel',['delete_route' => 'admin.all-reports.delete','delete_title' => 'Delete Reports','delete_message' => 'are You Sure about Deleting This Report'])
 
 @stop
 
@@ -55,7 +49,7 @@
 @section('page-script')
     <script>
         $('#table_id tbody').on('click', '#deleteButton', function() {
-            var id = $(this).attr('message-id');
+            var id = $(this).attr('report-id');
             $('#deleted_id').val(id);
         })
     </script>

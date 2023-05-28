@@ -7,7 +7,6 @@
 
 
 @section('content')
-
     <div class="container">
         <div class="row">
           <div class="col-xs-12 col-sm-12 col-md-12" id="d1">
@@ -32,86 +31,19 @@
 
         <div class="hidden-xs col-sm-3 col-md-3" id="leftnav">
           <h2>Categories</h2>
-          <a href="artwork.html">Artwork</a>
-          <a href="book.html">Books</a>
-          <a href="car.html">Cars</a>
-          <a href="computer.html">Computer & Laptop</a>
-          <a href="electronics.html">Electronics</a>
-          <a href="fashion.html">Fashion</a>
-          <a href="game.html">Games</a>
-          <a href="pet.html">Pets</a>
-          <a href="real-estate.html">Real Estate</a>
-          <a href="boat.html">Ships</a>
-          <a href="software.html">Software</a>
+            @foreach($categories as $category)
+                <a href="{{route('all_products',$category->id)}}">{{$category->name}}</a>
+            @endforeach
         </div>
         <div class="row">
-          <a href="artwork.html" class="categories">
+            @foreach($categories as $category)
+          <a href="{{route('all_products',$category->id)}}" class="categories">
             <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/art.png')}}" alt="Art - Artwork">
-              <h3>Artwork</h3>
+              <img src="{{asset($category->image_path)}}" alt="{{$category->name}}">
+              <h3>{{$category->name}}</h3>
             </div>
           </a>
-          <a href="book.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/book.png')}}" alt="Books - Artwork">
-              <h3>Books</h3>
-            </div>
-          </a>
-          <a href="car.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/cars.png')}}" alt="Cars - Artwork">
-              <h3>Cars</h3>
-            </div>
-          </a>
-
-          <a href="computer.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/computer.png')}}" alt="Computers - Artwork">
-              <h3>Computer & Laptop</h3>
-            </div>
-          </a>
-          <a href="electronics.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/electronics.png')}}" alt="Electronics - Artwork">
-              <h3>Electronics</h3>
-            </div>
-          </a>
-          <a href="fashion.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/fashion.png')}}" alt="Fashion - Artwork">
-              <h3>Fashion</h3>
-            </div>
-          </a>
-          <a href="game.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/games.png')}}" alt="Games - Artwork">
-              <h3>Games</h3>
-            </div>
-          </a>
-          <a href="pet.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/pet.png')}}" alt="Pets - Artwork">
-              <h3>Pets</h3>
-            </div>
-          </a>
-          <a href="real-estate.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/real-estate')}}.png" alt="Real Estate - Artwork">
-              <h3>Real Estate</h3>
-            </div>
-          </a>
-          <a href="boat.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/boat.png')}}" alt="Ships - Artwork">
-              <h3>Ship</h3>
-            </div>
-          </a>
-          <a href="software.html" class="categories">
-            <div class="col-xs-12 col-sm-6 col-md-2 cat" >
-              <img src="{{asset('website/images/software.png')}}" alt="Software - Artwork">
-              <h3>Software</h3>
-            </div>
-          </a>
+            @endforeach
 
         </div>
     </div>

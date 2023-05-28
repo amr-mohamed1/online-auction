@@ -27,7 +27,7 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
-        if (auth()->user()->type != "admin" && auth()->user()->type != 1) {
+        if (auth()->user()->type != "admin" || auth()->user()->status != 1) {
             Auth::guard('web')->logout();
 
             $request->session()->invalidate();

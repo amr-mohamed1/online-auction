@@ -25,9 +25,6 @@
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                                <th>Phone</th>
-                                <th>City</th>
-                                <th>Area</th>
                                 <th>Created At</th>
                                 <th>Actions</th>
                             </tr>
@@ -36,11 +33,8 @@
                         @foreach($admins as $admin)
                             <tr>
                                 <td>{{$admin->id}}</td>
-                                <td>{{$admin->name}}</td>
+                                <td>{{$admin->first_name . " " . $admin->last_name}}</td>
                                 <td>{{$admin->email}}</td>
-                                <td>{{$admin->phone}}</td>
-                                <td>{{$admin->cities->name}}</td>
-                                <td>{{$admin->areas->name}}</td>
                                 <td>{{$admin->created_at}}</td>
                                 <td>
                                     <a href="{{Route('admin.admin.edit', $admin->id)}}"  class="edit btn btn-success btn-sm" ><i class="fa fa-edit"></i></a>

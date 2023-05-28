@@ -58,7 +58,7 @@
                 <div class="Productname-seller">
 
                     <div class="productname col-sm-12 col-md-12 col-lg-12">
-                      <h1>Product Name</h1>
+                      <h1>{{$product->product_title}}</h1>
                     </div>
 
 
@@ -79,22 +79,19 @@
 
 
                   <div class="product-desc col-sm-12 col-md-12" id="descr">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                      Pellentesque at tristique velit. Pellentesque velit ligula,
-                      rhoncus eu ex id, eleifend pellentesque orci. Cras facilisis
-                      vehicula mi condimentum ultricies. Ut vitae vulputate ipsum. </p>
+                    <p>{{$product->description}}</p>
                   </div>
 
                   <div class="product-desc num col-sm-12 col-md-12">
-                    <p><span class="span-date-time">Number&nbsp;of&nbsp;Items:</span> 2</p>
+                    <p><span class="span-date-time">Number&nbsp;of&nbsp;Items:</span> {{$product->number_of_items}}</p>
                   </div>
 
                   <div class="product-desc col-sm-12 col-md-12">
-                    <p><span class="span-date-time">Condition:</span> New</p>
+                    <p><span class="span-date-time">Condition:</span> {{$product->Condition}}</p>
                   </div>
 
                   <div class="product-desc col-sm-12 col-md-12">
-                    <p><span class="span-date-time">Category:</span> <span id="prod-cat"><a href="artwork.html">Artwork</a></span></p>
+                    <p><span class="span-date-time">Category:</span> <span id="prod-cat"><a href="{{route('all_products',$product->category->id)}}">{{$product->category->name}}</a></span></p>
                   </div>
 
 
@@ -103,26 +100,26 @@
 
                     <div class="st-date-time">
                       <div class="sdate col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <p><span class="span-date-time">Starting Date:</span> 6/10/2022</p>
+                        <p><span class="span-date-time">Starting Date:</span> {{Carbon\Carbon::parse($product->start_date)->format('d-m-Y')}}</p>
                       </div>
                       <div class="stime col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6" >
-                        <p><span class="span-date-time">Starting Time:</span> 8:00 </p>
+                        <p><span class="span-date-time">Starting Time:</span> {{Carbon\Carbon::parse($product->start_date)->format('H:i')}} </p>
                       </div>
                     </div>
 
                     <div class="lt-date-time">
                       <div class="ldate col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <p><span class="span-date-time">Ending Date:</span> 6/10/2022</p>
+                        <p><span class="span-date-time">Ending Date:</span>{{Carbon\Carbon::parse($product->end_date)->format('d-m-Y')}}</p>
                       </div>
                       <div class="ltime col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                        <p><span class="span-date-time">Ending Time:</span> 9:00</p>
+                        <p><span class="span-date-time">Ending Time:</span> {{Carbon\Carbon::parse($product->end_date)->format('H:i')}}</p>
                       </div>
                     </div>
 
                   </div>
 
                   <div class="product-st-price col-sm-12 col-md-12">
-                    <h4><span class="span-date-time">Starting Price:</span> 50<span style="font-family: Mynerve; font-weight: 900;">&nbsp;LE</span></h4>
+                    <h4><span class="span-date-time">Starting Price:</span> {{$product->price}} <span style="font-family: Mynerve; font-weight: 900;">&nbsp;LE</span></h4>
                   </div>
 
 
