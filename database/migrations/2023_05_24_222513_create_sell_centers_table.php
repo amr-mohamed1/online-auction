@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('product_title');
             $table->decimal('price');
             $table->text('description');
+            $table->foreignId('owner_id')->constrained('users');
             $table->foreignId('category_id')->constrained('categories');
             $table->integer('number_of_items');
             $table->string('Condition');

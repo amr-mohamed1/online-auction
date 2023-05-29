@@ -24,6 +24,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('website/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('website/css/navbar.css')}}">
+    <link rel="stylesheet" href="{{asset('website/css/navbarlogged.css')}}">
     <link rel="stylesheet" href="{{asset('website/css/footer.css')}}">
     @if (trim($__env->yieldContent('page-styles')))
         @yield('page-styles')
@@ -66,12 +67,28 @@
 
                     <div class="container-fluid collapse navbar-collapse" id="colabse">
                         <ul class="nav navbar-nav navbar-right" id="navlist">
+                            @if(!auth()->user())
                             <li class="lista"><a href="{{route('index')}}" id="home">Home</a></li>
+                            @else
+                            <li class="lista"><a href="{{route('homepage')}}" id="home">Home</a></li>
+                            <li class="lista"><a href="{{route('sellcenter')}}" id="upload_products">Upload Products</a></li>
+                            @endif
                             <li class="lista" id="auctions"><a href="{{route('auctions')}}">Auctions</a></li>
                             <li class="lista" id="laws"><a href="{{route('index')}}#law-sec">Laws</a></li>
                             <li class="lista" id="about"><a href="{{route('about')}}">About</a></li>
+                            @if(!auth()->user())
                             <li class="lista" ><a href="{{route('site_login')}}" id="login">Login</a></li>
                             <li class="lista" ><a href="{{route('signup')}}" id="signup">Signup</a></li>
+                            @endif
+                            @if(auth()->user())
+                                    <li class="lista" id="logout">
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button style="margin-top: 14px;background-color: transparent;border: unset;color: red;" type="submit" id="logout">Logout</button>
+                                        </form>
+                                    </li>
+                                    <li class="lista" ><a href="{{route('profile',auth()->user()->id)}}" id="profile"><img src="{{asset('website/images/img_avatar.png')}}" alt="Profile"></a></li>
+                            @endif
                         </ul>
                     </div>
 

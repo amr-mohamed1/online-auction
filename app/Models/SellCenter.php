@@ -32,4 +32,14 @@ class SellCenter extends Model
     public function category(){
         return $this->belongsTo(Category::class,'category_id','id');
     }
+
+
+    /**
+     * relation with users table
+     *
+     * @return void
+     */
+    public function owner(){
+        return $this->belongsTo(User::class,'owner_id','id');
+    }
 }

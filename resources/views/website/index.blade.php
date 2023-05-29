@@ -24,10 +24,10 @@
               in an auction that has a specific start and end time. The sale process
               takes place through trusted and signed contracts among seller, buyer, and supplier.<br></p>
             <p id="job">The site provides job opportunities for young people as delivery workers.</p>
-            <button type="button" name="more" id="morebtn" class="btns" onclick="window.location.href='html/About.html'">Learn More</button>
+            <button type="button" name="more" id="morebtn" class="btns" onclick="window.location.href='{{'about'}}'">Learn More</button>
 
-            <button type="button" name="login" id="loginbtn" class="btns" onclick="window.location.href='html/Login.html'">Login</button>
-            <button type="button" name="signup" id="signupbtn" class="btns" onclick="window.location.href='html/Signup.html'">Signup</button>
+            <button type="button" name="login" id="loginbtn" class="btns" onclick="window.location.href='{{'site_login'}}'">Login</button>
+            <button type="button" name="signup" id="signupbtn" class="btns" onclick="window.location.href='{{'signup'}}'">Signup</button>
 
           </div>
 

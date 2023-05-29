@@ -20,8 +20,9 @@ class CategoryController extends Controller
         return view('website.all_products',compact('products'));
     }
 
-    public function product_date($id){
-        $product = SellCenter::with('product_images','category')->where('id',$id)->first();
-        return view('website.product',compact('product'));
+    public function product_data($id){
+        $random_products = SellCenter::with('product_images','category','owner')->inRandomOrder()->limit(3)->get();
+        $product = SellCenter::with('product_images','category','owner')->where('id',$id)->first();
+        return view('website.product',compact('product','random_products'));
     }
 }

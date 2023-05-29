@@ -25,26 +25,16 @@
 
                 <div class="smallimages">
 
+                    @foreach($product->product_images as $product_image)
                     <div class="column">
-                        <img src="{{asset('website/images/artwork/http___cdn.cnn.com_cnnnext_dam_assets_190430171751-mona-lisa.jpg')}}" alt="Nature" style="width:100%" onclick="myFunction(this);">
+                        <img src="{{asset('storage/products/'.$product_image->image_src)}}" alt="Nature" style="width:100%" onclick="myFunction(this);">
                     </div>
-
-                    <div class="column">
-                        <img src="{{asset('website/images/1325.jpg')}}" alt="Snow" style="width:100%" onclick="myFunction(this);">
-                    </div>
-
-                    <div class="column">
-                        <img src="{{asset('website/images/16576.jpg')}}" alt="Mountains" style="width:100%" onclick="myFunction(this);">
-                    </div>
-
-                    <div class="column">
-                        <img src="{{asset('website/images/2010.i123.005..car headlights AD composition.jpg')}}" alt="Lights" style="width:100%" onclick="myFunction(this);">
-                    </div>
+                    @endforeach
 
                   </div>
 
                   <div class="mainimg col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                    <img id="expandedImg" style="width:100%" src="{{asset('website/images/artwork/http___cdn.cnn.com_cnnnext_dam_assets_190430171751-mona-lisa.jpg')}}">
+                    <img id="expandedImg" style="width:100%" src="{{asset('storage/products/'.$product->product_images[0]->image_src)}}">
                     <div id="imgtext"></div>
                 </div>
 
@@ -69,7 +59,7 @@
                           <img src="{{asset('website/images/img_avatar.png')}}" alt="Profile Pic">
                         </div>
                         <div class="seller-name col-sm-10 col-md-10">
-                          mohamad abdelrahman
+                            {{$product->owner->first_name . ' ' . $product->owner->last_name}}
                         </div>
                       </a>
 
@@ -124,7 +114,7 @@
 
 
                   <div class="part-btn col-xs-12 col-sm-12 col-md-12">
-                      <button onclick="window.location.href='dashboard.html'">participate</button>
+                      <a href="{{route('product_dashboard',$product->id)}}"><button>participate</button></a>
                   </div>
               </div>
         </div>
@@ -140,137 +130,53 @@
           <h2>Recommended Products</h2>
           <!-- products div is where products will be added -->
             <div class="col-xs-12 col-sm-12 col-md-12 products">
-              <!-- product 1 -->
-              <div class="col-xs-3 col-sm-3 col-md-3 prod">
-                <div class="row">
-                  <!-- product photo -->
-                  <div class="col-xs-12 col-sm-2 col-md-2 photo">
-                    <img src="{{asset('website/images/ship/211223182650-04-storylines-residential-cruise-ship-concept.jpg')}}" alt="photo">
-                  </div>
-                  <!-- product info -->
-                  <div class="col-xs-12 col-sm-8 col-md-8 prodinfo">
-                    <div class="title">
-                      <a href=""><h2>Product Name</h2></a>
-                    </div>
-                    <div class="description hidden">
-                      <p>This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.</p>
-                    </div>
 
-                    <!-- date time -->
-                    <div class="row datetime">
-                      <div class="col-xs-12 col-sm-12 col-md-12 cond">
-                        <p>Condition : <span class="condspan">Almost New</span></p>
-                        <p>No Items : <span class="condspan">1</span> </p>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 col-md-6 startingdatetime">
-                        <p>Starting Date :  <span class="condspan"><br>5 - 10 - 2023</span></p>
-                        <P>Starting Time :  <span class="condspan"><br>18:00</span></P>
-                      </div>
-                      <div class="col-xs-12 col-sm-6 col-md-6  endingdatetime">
-                        <p>Ending Date :  <span class="condspan"><br>6 - 10 - 2023</span></p>
-                        <P>Ending Time :  <span class="condspan"><br>18:00</span></P>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- price -->
-                  <div class="col-xs-12 col-sm-12 col-md-12 price">
-                      <h3>500 LE</h3>
-                      <div class="row divbtn">
-                        <div class="col-xs-12 col-sm-12 col-md-12 btn">
-                          <button>View</button>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>  <!-- end of product 1  -->
-
-               <!-- product 1 -->
-              <div class="col-xs-3 col-sm-3 col-md-3 prod">
-                <div class="row">
-                  <!-- product photo -->
-                  <div class="col-xs-12 col-sm-2 col-md-2 photo">
-                    <img src="{{asset('website/images/ship/211223182650-04-storylines-residential-cruise-ship-concept.jpg')}}" alt="photo">
-                  </div>
-                  <!-- product info -->
-                  <div class="col-xs-12 col-sm-8 col-md-8 prodinfo">
-                    <div class="title">
-                      <a href=""><h2>Product Name</h2></a>
-                    </div>
-                    <div class="description hidden">
-                      <p>This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.</p>
-                    </div>
-
-                    <!-- date time -->
-                    <div class="row datetime">
-                      <div class="col-xs-12 col-sm-12 col-md-12 cond">
-                        <p>Condition : <span class="condspan">Almost New</span></p>
-                        <p>No Items : <span class="condspan">1</span> </p>
-                      </div>
-                      <div class="col-xs-12 col-sm-5 col-md-5 startingdatetime">
-                        <p>Starting Date :  <span class="condspan"><br>5 - 10 - 2023</span></p>
-                        <P>Starting Time :  <span class="condspan"><br>18:00</span></P>
-                      </div>
-                      <div class="col-xs-12 col-sm-5 col-md-5  endingdatetime">
-                        <p>Ending Date :  <span class="condspan"><br>6 - 10 - 2023</span></p>
-                        <P>Ending Time :  <span class="condspan"><br>18:00</span></P>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- price -->
-                  <div class="col-xs-12 col-sm-2 col-md-2 price">
-                      <h3>500 LE</h3>
-                      <div class="row divbtn">
-                        <div class="col-xs-12 col-sm-12 col-md-12 btn">
-                          <button>View</button>
-                        </div>
-                      </div>
-                  </div>
-                </div>
-              </div>  <!-- end of product 1  -->
-
-              <!-- product 1 -->
-              <div class="col-xs-3 col-sm-3 col-md-3 prod">
-                              <div class="row">
-                                <!-- product photo -->
-                                <div class="col-xs-12 col-sm-2 col-md-2 photo">
-                                  <img src="{{asset('website/images/ship/211223182650-04-storylines-residential-cruise-ship-concept.jpg')}}" alt="photo">
+            @foreach($random_products as $rand_product)
+                <!-- product 1 -->
+                    <div class="col-xs-3 col-sm-3 col-md-3 prod">
+                        <div class="row">
+                            <!-- product photo -->
+                            <div class="col-xs-12 col-sm-2 col-md-2 photo">
+                                <img src="{{asset('storage/products/'.$rand_product->product_images[0]->image_src)}}" alt="photo">
+                            </div>
+                            <!-- product info -->
+                            <div class="col-xs-12 col-sm-8 col-md-8 prodinfo">
+                                <div class="title">
+                                    <a href=""><h2>{{$rand_product->product_title}}</h2></a>
                                 </div>
-                                <!-- product info -->
-                                <div class="col-xs-12 col-sm-8 col-md-8 prodinfo">
-                                  <div class="title">
-                                    <a href=""><h2>Product Name</h2></a>
-                                  </div>
-                                  <div class="description hidden">
-                                    <p>This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.This is a description for the product i sell online using online auction application.</p>
-                                  </div>
+                                <div class="description hidden">
+                                    <p>{{$rand_product->description}}</p>
+                                </div>
 
-                                  <!-- date time -->
-                                  <div class="row datetime">
+                                <!-- date time -->
+                                <div class="row datetime">
                                     <div class="col-xs-12 col-sm-12 col-md-12 cond">
-                                      <p>Condition : <span class="condspan">Almost New</span></p>
-                                      <p>No Items : <span class="condspan">1</span> </p>
+                                        <p>Condition : <span class="condspan">{{$rand_product->Condition}}</span></p>
+                                        <p>No Items : <span class="condspan">{{$rand_product->number_of_items}}</span> </p>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-6 startingdatetime">
-                                      <p>Starting Date :  <span class="condspan"><br>5 - 10 - 2023</span></p>
-                                      <P>Starting Time :  <span class="condspan"><br>18:00</span></P>
+                                        <p>Starting Date :  <span class="condspan"><br>  {{Carbon\Carbon::parse($rand_product->start_date)->format('d-m-Y')}} </span></p>
+                                        <P>Starting Time :  <span class="condspan"><br> {{Carbon\Carbon::parse($rand_product->start_date)->format('H:i')}} </span></P>
                                     </div>
                                     <div class="col-xs-12 col-sm-6 col-md-6  endingdatetime">
-                                      <p>Ending Date :  <span class="condspan"><br>6 - 10 - 2023</span></p>
-                                      <P>Ending Time :  <span class="condspan"><br>18:00</span></P>
-                                    </div>
-                                  </div>
-                                </div>
-                                <!-- price -->
-                                <div class="col-xs-12 col-sm-2 col-md-2 price">
-                                    <h3>500 LE</h3>
-                                    <div class="row divbtn">
-                                      <div class="col-xs-12 col-sm-12 col-md-12 btn">
-                                        <button>View</button>
-                                      </div>
+                                        <p>Ending Date :  <span class="condspan"><br>{{Carbon\Carbon::parse($rand_product->end_date)->format('d-m-Y')}}</span></p>
+                                        <P>Ending Time :  <span class="condspan"><br>{{Carbon\Carbon::parse($rand_product->end_date)->format('H:i')}}</span></P>
                                     </div>
                                 </div>
-                              </div>
-              </div>  <!-- end of product 1  -->
+                            </div>
+                            <!-- price -->
+                            <div class="col-xs-12 col-sm-12 col-md-12 price">
+                                <h3>{{$rand_product->price}} LE</h3>
+                                <div class="row divbtn">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 btn">
+                                        <a href="{{route('product',$rand_product->id)}}"><button>View</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  <!-- end of product 1  -->
+                @endforeach
+
             </div>
 
         </div>

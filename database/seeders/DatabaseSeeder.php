@@ -18,9 +18,9 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
          \App\Models\User::create([
-             'first_name'           => 'Test Account',
-             'last_name'            => 'Test Account',
-             'email'                => 'Test Account',
+             'first_name'           => 'Test',
+             'last_name'            => 'Account',
+             'email'                => 'admintest@gmail.com',
              'password'             => '$2y$10$RYRxAxkN.ifPjKVadb9fFOY8orKb/glpvquGZgcscf5ackHyD2pR2',
              'type'                 => 'admin'
          ]);

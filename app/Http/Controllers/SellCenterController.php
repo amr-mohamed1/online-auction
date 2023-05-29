@@ -33,6 +33,7 @@ class SellCenterController extends Controller
                 'product_title'                         => $request->title,
                 'price'                                 => $request->price,
                 'description'                             => $request->description,
+                'owner_id'                             => auth()->user()->id,
                 'category_id'                             => $request->category,
                 'number_of_items'                       => $request->numberitem,
                 'Condition'                          => $request->condition,

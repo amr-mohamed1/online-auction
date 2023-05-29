@@ -49,4 +49,15 @@ class User extends Authenticatable
     public function admin_logs(){
         return $this->hasMany(Logs::class,'user_id','id');
     }
+
+
+
+    /**
+     * relation with sellcenter table
+     *
+     * @return void
+     */
+    public function product(){
+        return $this->hasMany(SellCenter::class,'owner_id','id');
+    }
 }

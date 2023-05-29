@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PasswordReset;
+use App\Models\SellCenter;
 use App\Models\User;
 use App\Traits\UploadImages;
 use Illuminate\Http\Request;
@@ -58,7 +59,6 @@ class AuthController extends Controller
             ]);
             toastr()->success('User Added Successfully');
         }catch (\Exception $ex){
-            return $ex;
             toastr()->error($ex->getMessage());
         }
         return redirect()->route('site_login');
@@ -176,5 +176,11 @@ class AuthController extends Controller
         }
         return redirect()->back();
 
+        }
+
+
+        public function profile_date($id){
+            $uploaded_product = SellCenter::with('product_images','category','owner')->where('owner_id',$id)->get();
+            return view('website.profile',compact('uploaded_product'));
         }
 }

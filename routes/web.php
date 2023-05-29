@@ -11,6 +11,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\ProductAuctionController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\SellCenterController;
 use App\Http\Controllers\SpecialityController;
@@ -73,15 +74,11 @@ Route::get('/sellcenter',[SellCenterController::class,'index'])->name('sellcente
 
 Route::get('/all_products/{id}',[\App\Http\Controllers\CategoryController::class,'get_category_products'])->name('all_products');
 
-Route::get('/product/{id}',[\App\Http\Controllers\CategoryController::class,'product_date'])->name('product');
+Route::get('/product/{id}',[\App\Http\Controllers\CategoryController::class,'product_data'])->name('product');
 
-Route::get('/product_dashboard', function () {
-    return view('website.product_dashboard');
-})->name('product_dashboard');
+Route::get('/product_dashboard/{id}',[ProductAuctionController::class,'index'])->name('product_dashboard');
 
-Route::get('/profile', function () {
-    return view('website.profile');
-})->name('profile');
+Route::get('/profile/{id}',[AuthController::class,'profile_date'])->name('profile')->middleware('auth');
 
 Route::get('/edit_profile', function () {
     return view('website.edit_profile');
