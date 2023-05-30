@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ReportUserController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BidController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ContactUsController;
@@ -71,6 +72,8 @@ Route::get('/homepage', function () {
 })->name('homepage');
 
 Route::get('/sellcenter',[SellCenterController::class,'index'])->name('sellcenter');
+
+Route::post('/store_bid',[BidController::class,'store'])->name('store_bid');
 
 Route::get('/all_products/{id}',[\App\Http\Controllers\CategoryController::class,'get_category_products'])->name('all_products');
 

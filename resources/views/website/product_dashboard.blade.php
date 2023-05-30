@@ -28,24 +28,16 @@
 
                 <script>
                 var xyValues = [
-                {x:50, y:7},
-                {x:60, y:8},
-                {x:70, y:8},
-                {x:80, y:9},
-                {x:90, y:9},
-                {x:100, y:9},
-                {x:110, y:10},
-                {x:120, y:11},
-                {x:130, y:14},
-                {x:140, y:14},
-                {x:150, y:15}
+                    @foreach($all_bids->with('users')->get() as $our_bids)
+                    {x: {{$our_bids->User_id}}, y:{{$our_bids->price}}},
+                    @endforeach
                 ];
 
                 new Chart("myChart", {
                 type: "scatter",
                 data: {
                     datasets: [{
-                    pointRadius: 4,
+                    pointRadius: 5,
                     pointBackgroundColor: "rgb(0,0,255)",
                     data: xyValues
                     }]
@@ -53,8 +45,8 @@
                 options: {
                     legend: {display: false},
                     scales: {
-                    xAxes: [{ticks: {min: 40, max:160}}],
-                    yAxes: [{ticks: {min: 6, max:16}}],
+                    xAxes: [],
+                    yAxes: [],
                     }
                 }
                 });
@@ -67,28 +59,27 @@
                     <h2>Top Bidders</h2>
                 </div>
 
-                <div class="row bidder-top">
-                    <div class="bidder-pic-name">
-                        <div class="col-xs-2 col-sm-2 col-md-2 bidder-pic" >
-                            <img src="{{asset('website/images/img_avatar.png')}}" alt="image">
+                <div class="row bidder-top" style="overflow-y: auto">
+                    @foreach($all_bids->with('users')->orderBy('id', 'desc')->get() as $bids)
+                    <div class="bidder-pic-name mb-5">
+                        <div class="col-xs-2 col-sm-2 col-md-2 bidder-pic mb-5" >
+                            <img src="{{asset('storage/user_profile_images/'.$bids->users->img)}}" alt="image">
                         </div>
                         <div class="col-xs-7 col-sm-7 col-md-7 bidder-name">
-                            <p>User Name</p>
+                            <p>{{$bids->users->id . " - " . $bids->users->first_name}}</p>
                         </div>
                         <div class="col-xs-3 col-sm-3 col-md-3 bidder-name">
-                            <p>500 LE</p>
+                            <p>{{$bids->price}}</p>
+
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
 
 
 
         </div>
-
-
-
-
 
 
             <div class="col-xs-12 col-sm-9 col-md-9" id="de">
@@ -98,13 +89,13 @@
 
               <!-- before auctions start -->
               <div class="time22" hidden>
-                    <p>Bid starts after</p>
+                    <p>Bid starts after </p>
 
                     <p id="demo"></p>
 
                     <script>
                     // Set the date we're counting down to
-                    var countDownDate = new Date("Jan 5, 2024 15:37:25").getTime();
+                    var countDownDate = new Date('{{date("M d, Y h:i:s", strtotime($product->end_date))}}').getTime();
 
                     // Update the count down every 1 second
                     var x = setInterval(function() {
@@ -150,13 +141,22 @@
             <!-- after -->
               <div class="place-bid">
                 <h3>Place Your Bid</h3>
-                <form action="">
-                    <input type="number" inputmode="numeric" placeholder="LE" id="bid-val">
-                    <input type="submit" id="add" value="Place Bid">
+                <form action="{{route('store_bid')}}" method="POST">
+                    @csrf
+                    <input type="number" inputmode="numeric" name="price" placeholder="LE" id="bid-val">
+                    @error('price')
+                    <p class="help text-danger">{{ $message }}</p>
+                    @enderror
+                    <input type="number" name="product_id" hidden value="{{$product->id}}">
+                    @if($product->end_date > \Carbon\Carbon::now())
+                        <input type="submit" id="add" value="Place Bid">
+                    @else
+                        <p STYLE="color: red;margin: 20px">EXPIRED</p>
+                    @endif
                 </form>
                 <div class="deta">
-                    <p id="high">Highest Bid: 500 LE</p>
-                    <p id="yours">Your Latest Bid: 500 LE</p>
+                    <p id="high">Highest Bid:  {{$product->bid_product->max('price')}} LE</p>
+                    <p id="yours">Your Latest Bid: {{$user_last_bid[0]->price}}  LE</p>
                     <p>Remaining Time:</p>
                     <p id="dem" style="display: inline;"></p>
                 </div>

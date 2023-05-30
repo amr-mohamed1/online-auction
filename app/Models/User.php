@@ -60,4 +60,15 @@ class User extends Authenticatable
     public function product(){
         return $this->hasMany(SellCenter::class,'owner_id','id');
     }
+
+
+
+    /**
+     * relation with bids table
+     *
+     * @return void
+     */
+    public function user_bids(){
+        return $this->hasMany(Bid::class,'User_id','id');
+    }
 }

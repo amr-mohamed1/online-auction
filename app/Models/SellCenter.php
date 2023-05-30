@@ -42,4 +42,14 @@ class SellCenter extends Model
     public function owner(){
         return $this->belongsTo(User::class,'owner_id','id');
     }
+
+
+    /**
+     * relation with bids table
+     *
+     * @return void
+     */
+    public function bid_product(){
+        return $this->hasMany(Bid::class,'product_id','id');
+    }
 }
