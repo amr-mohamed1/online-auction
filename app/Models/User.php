@@ -64,6 +64,17 @@ class User extends Authenticatable
 
 
     /**
+     * relation with sellcenter table
+     *
+     * @return void
+     */
+    public function purchased_products(){
+        return $this->hasMany(SellCenter::class,'buyer','id');
+    }
+
+
+
+    /**
      * relation with bids table
      *
      * @return void

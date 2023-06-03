@@ -181,6 +181,17 @@ class AuthController extends Controller
 
         public function profile_date($id){
             $uploaded_product = SellCenter::with('product_images','category','owner')->where('owner_id',$id)->get();
-            return view('website.profile',compact('uploaded_product'));
+            $purchased_products = SellCenter::with('product_images','category','owner')->where('buyer_id',$id)->where('end_date','>',\Carbon\Carbon::now())->get();
+            return view('website.profile',compact('uploaded_product','purchased_products'));
+        }
+
+        public function assigned_con($product_id){
+            try {
+                $product_data = SellCenter::with('product_images','category','owner')->find($product_id);
+                return view('website.assigned-contract',compact('product_data'));
+            }catch (\Exception $ex){
+                toastr()->error($ex->getMessage());
+                return redirect()->back();
+            }
         }
 }

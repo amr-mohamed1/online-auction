@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bid;
+use App\Models\SellCenter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,7 +16,8 @@ class BidController extends Controller
         ]);
         try{
             $max_price = Bid::where('product_id',$request->product_id)->max('price');
-            if($max_price > $request->price){
+            $product_min_price = SellCenter::find($request->product_id);
+            if($max_price > $request->price && $product_min_price->price > $request->price){
                 toastr()->warning('Please Enter Price More Than Highest Bid');
                 return redirect()->back();
             }
@@ -24,6 +26,10 @@ class BidController extends Controller
                 'user_id'                         => auth()->user()->id,
                 'product_id'                      => $request->product_id,
                 'price'                           => $request->price,
+            ]);
+            SellCenter::where('id',$request->product_id)->update([
+                'buyer_id'=>auth()->user()->id,
+                'max_price'=>$request->price,
             ]);
 
             toastr()->success('Price Sent Successfully Successfully');

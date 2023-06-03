@@ -36,11 +36,11 @@
                 <br> <br>
                 <p>
                     <span class="sign buyer-sign">
-                        mohamed ahmed mohamed
+                       {{auth()->user()->first_name . " " . auth()->user()->last_name}}
                     </span>
                     , hereinafter referred to as Purchaser, offers and agrees to purchase from
                     <span class="sign seller-sign">
-                        ahmed mohamed ahmed
+                        {{$product_data->owner->first_name . " " . $product_data->owner->last_name}}
                     </span>
                     , hereinafter referred to as Seller,
                     upon the terms and conditions set forth.
@@ -48,7 +48,7 @@
                 <br><br>
                 <p>
                     <span class="sign buyer-sign" >
-                        mohamed ahmed mohamed
+                       {{auth()->user()->first_name . " " . auth()->user()->last_name}}
                     </span>
                     will pay to buy
                     <span class="sign number-of-items" >
@@ -56,11 +56,11 @@
                     </span>
                     item of the product
                     <span class="sign product-name" >
-                        pepsi
+                        {{$product_data->product_title}}
                     </span>
                     at
                     <span class="sign price-amount">
-                        20
+                        {{$product_data->max_price}}
                     </span>
                     Egyptian Pounds (LE).
 
@@ -68,17 +68,17 @@
                     The seller offered his product for sale in an online auction through the website <span class="online-auction">ONLINE&nbsp;AUCTION</span>
                     in the period from
                     <span class="sign auc-start-date">
-                        5/12/2023 8:00
+                        {{Carbon\Carbon::parse($product_data->start_date)->format('d-m-Y')}} {{Carbon\Carbon::parse($product_data->start_date)->format('H:i')}}
                     </span>
                     to
                     <span class="sign auc-end-date">
-                        5/12/2023 9:00
+                        {{Carbon\Carbon::parse($product_data->end_date)->format('d-m-Y')}} {{Carbon\Carbon::parse($product_data->end_date)->format('H:i')}}
                     </span>
                     and the buyer participated in the auction and won it.
 
                     <br><br>
                     <span class="sign supplier-sign">
-                        mostafa mohamed ahmed
+                        *transfare Company*
                     </span>
                     agreed to mediate between the seller and the buyer to transfer
                     product from the seller to the buyer and to deliver the money to the seller.

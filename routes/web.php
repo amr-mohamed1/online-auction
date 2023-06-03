@@ -11,6 +11,7 @@ use App\Http\Controllers\BidController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductAuctionController;
 use App\Http\Controllers\RateController;
@@ -67,9 +68,8 @@ Route::get('/confirm_password', function () {
     return view('website.confirm_password');
 })->name('confirm_password');
 
-Route::get('/homepage', function () {
-    return view('website.homepage');
-})->name('homepage');
+Route::get('/homepage', [HomePageController::class,'index'])->name('homepage');
+Route::post('/homepage/search/', [HomePageController::class,'search_for_product'])->name('homepage_search');
 
 Route::get('/sellcenter',[SellCenterController::class,'index'])->name('sellcenter');
 
@@ -87,9 +87,7 @@ Route::get('/edit_profile', function () {
     return view('website.edit_profile');
 })->name('edit_profile');
 
-Route::get('/assigned-contract', function () {
-    return view('website.assigned-contract');
-})->name('assigned-contract');
+Route::get('/assigned-contract/{id}', [AuthController::class,'assigned_con'])->name('assigned-contract');
 
 Route::get('/yourorders', function () {
     return view('website.yourorders');

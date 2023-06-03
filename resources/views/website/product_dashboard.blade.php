@@ -155,8 +155,8 @@
                     @endif
                 </form>
                 <div class="deta">
-                    <p id="high">Highest Bid:  {{$product->bid_product->max('price')}} LE</p>
-                    <p id="yours">Your Latest Bid: {{$user_last_bid[0]->price}}  LE</p>
+                    <p id="high">Highest Bid:  {{$product->bid_product->max('price') ?? $product->price}} LE</p>
+                    <p id="yours">Your Latest Bid: {{$user_last_bid[0]->price ?? '0'}}  LE</p>
                     <p>Remaining Time:</p>
                     <p id="dem" style="display: inline;"></p>
                 </div>
