@@ -67,24 +67,38 @@
 
                     <div class="container-fluid collapse navbar-collapse" id="colabse">
                         <ul class="nav navbar-nav navbar-right" id="navlist">
-                            @if(!auth()->user())
-                            <li class="lista"><a href="{{route('index')}}" id="home">Home</a></li>
+                            @if(auth()->user() && auth()->user()->type == "supplier")
+                                <li class="lista"><a href="{{route('yourorders')}}" id="home">Incomming Orders</a></li>
+                                <li class="lista"><a href="{{route('my_orders')}}" id="home">My Orders</a></li>
+                                <li class="lista" id="laws"><a href="{{route('index')}}#law-sec">Laws</a></li>
+                                <li class="lista" id="about"><a href="{{route('about')}}">About</a></li>
                             @else
-                            <li class="lista"><a href="{{route('homepage')}}" id="home">Home</a></li>
-                            <li class="lista"><a href="{{route('sellcenter')}}" id="upload_products">Upload Products</a></li>
+
+                                @if(!auth()->user())
+                                <li class="lista"><a href="{{route('index')}}" id="home">Home</a></li>
+                                @else
+                                <li class="lista"><a href="{{route('homepage')}}" id="home">Home</a></li>
+                                <li class="lista"><a href="{{route('sellcenter')}}" id="upload_products">Upload Products</a></li>
+                                @endif
+                                <li class="lista" id="auctions"><a href="{{route('auctions')}}">Auctions</a></li>
+                                <li class="lista" id="laws"><a href="{{route('index')}}#law-sec">Laws</a></li>
+                                <li class="lista" id="about"><a href="{{route('about')}}">About</a></li>
+                                @if(!auth()->user())
+                                <li class="lista" ><a href="{{route('site_login')}}" id="login">Login</a></li>
+                                <li class="lista" ><a href="{{route('signup')}}" id="signup">Signup</a></li>
+                                @endif
+
                             @endif
-                            <li class="lista" id="auctions"><a href="{{route('auctions')}}">Auctions</a></li>
-                            <li class="lista" id="laws"><a href="{{route('index')}}#law-sec">Laws</a></li>
-                            <li class="lista" id="about"><a href="{{route('about')}}">About</a></li>
-                            @if(!auth()->user())
-                            <li class="lista" ><a href="{{route('site_login')}}" id="login">Login</a></li>
-                            <li class="lista" ><a href="{{route('signup')}}" id="signup">Signup</a></li>
-                            @endif
+
+
                             @if(auth()->user())
+                                    <li class="lista">
+                                        <a href="{{route('report-user')}}">Report User</a>
+                                    </li>
                                     <li class="lista" id="logout">
                                         <form action="{{ route('logout') }}" method="post">
                                             @csrf
-                                            <button style="margin-top: 14px;background-color: transparent;border: unset;color: red;" type="submit" id="logout">Logout</button>
+                                            <button style="margin-top: 15px;background-color: transparent;border: unset;color: red;" type="submit" id="logout">Logout</button>
                                         </form>
                                     </li>
                                     <li class="lista" ><a href="{{route('profile',auth()->user()->id)}}" id="profile"><img src="{{asset('website/images/img_avatar.png')}}" alt="Profile"></a></li>

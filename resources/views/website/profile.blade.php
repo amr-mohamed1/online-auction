@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="editprof col-xs-12  col-sm-3 col-md-3 col-lg-3 ">
-                  <button onclick="window.location.href='editprofile.html'">Edit Profile</button>
+                  <button onclick="window.location.href='{{route('edit_profile')}}'">Edit Profile</button>
               </div>
             </div>
 
@@ -43,7 +43,18 @@
                     <p class="inforimg"><img src="{{asset('website/images/age_80px.png')}}" alt="age">{{auth()->user()->birthday}}</p>
                     <p class="inforimg"><img src="{{asset('website/images/Smartphone_128px.png')}}" alt="phone">{{auth()->user()->phone}}</p>
                     <p class="inforimg"><img src="{{asset('website/images/address_80px.png')}}" alt="address">{{auth()->user()->country}} - {{auth()->user()->city}} - {{auth()->user()->address}}</p>
-                    <p class="inforimg"><img src="{{asset('website/images/delivery_80px.png')}}" alt="status"><span class="statusbusy"> Busy</span></p>
+
+                    @if(auth()->user()->type == 'supplier')
+                    <p class="inforimg"><img src="{{asset('website/images/delivery_80px.png')}}" alt="status">
+
+                            @if($busy_or_not > 0)
+                            <span class="statusbusy"> Busy </span>
+                            @else
+                            <span class="status" > Avilable </span>
+                            @endif
+                        </p>
+                    @endif
+
                     <p><span class="infor">Created at :</span> {{auth()->user()->created_at}}</p>
 
                 </div>
@@ -51,7 +62,7 @@
         </div>
     </div>
 
-
+    @if(auth()->user()->type != "supplier")
     <div class="container">
       <div class="row">
 
@@ -169,6 +180,7 @@
         </div>
       </div>
   </div>
+    @endif
 
 @stop
 @section('page-script')

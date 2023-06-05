@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeliverProduct;
 use App\Models\PasswordReset;
 use App\Models\SellCenter;
 use App\Models\User;
@@ -181,8 +182,9 @@ class AuthController extends Controller
 
         public function profile_date($id){
             $uploaded_product = SellCenter::with('product_images','category','owner')->where('owner_id',$id)->get();
-            $purchased_products = SellCenter::with('product_images','category','owner')->where('buyer_id',$id)->where('end_date','>',\Carbon\Carbon::now())->get();
-            return view('website.profile',compact('uploaded_product','purchased_products'));
+            $purchased_products = SellCenter::with('product_images','category','owner')->where('buyer_id',$id)->where('end_date','<',\Carbon\Carbon::now())->get();
+            $busy_or_not = DeliverProduct::where('supplier_id',auth()->user()->id)->where('order_status','in-progress')->count();
+            return view('website.profile',compact('uploaded_product','purchased_products','busy_or_not'));
         }
 
         public function assigned_con($product_id){
@@ -193,5 +195,38 @@ class AuthController extends Controller
                 toastr()->error($ex->getMessage());
                 return redirect()->back();
             }
+        }
+
+        public function update_profile(Request $request,$id){
+//        return $request;
+            try{
+                $user = User::find($id);
+                if($request->image){
+                    $final_path = $this->upload_img($request,'image','user_profile_images');
+                }else{
+                    $final_path = auth()->user()->img;
+                }
+                $user->update([
+                    'first_name'                        => $request->firstname,
+                    'last_name'                         => $request->lastname,
+                    'email'                             => $request->email,
+                    'phone'                             => $request->phone,
+                    'home_number'                       => $request->home_number,
+                    'password'                          => Hash::make($request->password),
+                    'gender'                            => $request->gender,
+                    'birthday'                          => $request->birthdate,
+                    'country'                           => $request->country,
+                    'city'                              => $request->city,
+                    'address'                           => $request->address,
+                    'postal_code'                       => $request->postal_code,
+                    'digital_signature'                 => $request->digital_signature,
+                    'type'                              => auth()->user()->type,
+                    'img'                               => $final_path,
+                ]);
+                toastr()->success('User Updated Successfully');
+            }catch (\Exception $ex){
+                toastr()->error($ex->getMessage());
+            }
+            return redirect()->route('profile',auth()->user()->id);
         }
 }

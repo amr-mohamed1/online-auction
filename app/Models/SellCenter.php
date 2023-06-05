@@ -44,6 +44,17 @@ class SellCenter extends Model
     }
 
 
+
+    /**
+     * relation with users table
+     *
+     * @return void
+     */
+    public function buyer(){
+        return $this->belongsTo(User::class,'buyer_id','id');
+    }
+
+
     /**
      * relation with bids table
      *
@@ -51,5 +62,15 @@ class SellCenter extends Model
      */
     public function bid_product(){
         return $this->hasMany(Bid::class,'product_id','id');
+    }
+
+
+    /**
+     * relation with DeliverProduct table
+     *
+     * @return void
+     */
+    public function delivery_products(){
+        return $this->hasMany(DeliverProduct::class,'product_id','id');
     }
 }

@@ -39,7 +39,43 @@ Route::get('/about', function () {
     return view('website.about');
 })->name('about');
 
-Route::get('/auctions', [\App\Http\Controllers\CategoryController::class,'all_categories'])->name('auctions');
+Route::middleware('auth')->group(function () {
+    Route::get('/auctions', [\App\Http\Controllers\CategoryController::class,'all_categories'])->name('auctions');
+
+
+    Route::get('/homepage', [HomePageController::class,'index'])->name('homepage');
+    Route::post('/homepage/search/', [HomePageController::class,'search_for_product'])->name('homepage_search');
+
+    Route::get('/sellcenter',[SellCenterController::class,'index'])->name('sellcenter');
+
+    Route::post('/store_bid',[BidController::class,'store'])->name('store_bid');
+
+    Route::get('/all_products/{id}',[\App\Http\Controllers\CategoryController::class,'get_category_products'])->name('all_products');
+
+    Route::get('/product/{id}',[\App\Http\Controllers\CategoryController::class,'product_data'])->name('product');
+
+    Route::get('/product_dashboard/{id}',[ProductAuctionController::class,'index'])->name('product_dashboard');
+
+    Route::get('/profile/{id}',[AuthController::class,'profile_date'])->name('profile')->middleware('auth');
+
+    Route::get('/edit_profile', function () {
+        return view('website.edit_profile');
+    })->name('edit_profile');
+
+    Route::post('/edit_profile_data/{id}',[AuthController::class,'update_profile'])->name('edit_profile_data');
+
+    Route::get('/assigned-contract/{id}', [AuthController::class,'assigned_con'])->name('assigned-contract');
+
+    Route::get('/yourorders',[OrderController::class,'all_orders'])->name('yourorders');
+    Route::get('/my_orders',[OrderController::class,'my_orders'])->name('my_orders');
+    Route::get('/accept_order/{id}',[OrderController::class,'accept_order'])->name('accept_order');
+    Route::get('/complete_order/{id}',[OrderController::class,'complete_order'])->name('complete_order');
+    Route::get('/refuse_order/{id}',[OrderController::class,'refuse_order'])->name('refuse_order');
+
+    Route::post('/store_product',[SellCenterController::class,'store_product'])->name('store_product');
+
+});
+
 
 Route::get('/site_login', function () {
     return view('website.login');
@@ -68,37 +104,12 @@ Route::get('/confirm_password', function () {
     return view('website.confirm_password');
 })->name('confirm_password');
 
-Route::get('/homepage', [HomePageController::class,'index'])->name('homepage');
-Route::post('/homepage/search/', [HomePageController::class,'search_for_product'])->name('homepage_search');
-
-Route::get('/sellcenter',[SellCenterController::class,'index'])->name('sellcenter');
-
-Route::post('/store_bid',[BidController::class,'store'])->name('store_bid');
-
-Route::get('/all_products/{id}',[\App\Http\Controllers\CategoryController::class,'get_category_products'])->name('all_products');
-
-Route::get('/product/{id}',[\App\Http\Controllers\CategoryController::class,'product_data'])->name('product');
-
-Route::get('/product_dashboard/{id}',[ProductAuctionController::class,'index'])->name('product_dashboard');
-
-Route::get('/profile/{id}',[AuthController::class,'profile_date'])->name('profile')->middleware('auth');
-
-Route::get('/edit_profile', function () {
-    return view('website.edit_profile');
-})->name('edit_profile');
-
-Route::get('/assigned-contract/{id}', [AuthController::class,'assigned_con'])->name('assigned-contract');
-
-Route::get('/yourorders', function () {
-    return view('website.yourorders');
-})->name('yourorders');
 
 Route::get('/report-user', function () {
     return view('website.report');
 })->name('report-user');
 
 
-Route::post('/store_product',[SellCenterController::class,'store_product'])->name('store_product');
 Route::post('/store-report-request',[ReportUserController::class,'store'])->name('store-report-request');
 Route::post('/store-feedback',[FeedbackController::class,'store'])->name('store-feedback');
 Route::post('/send_reset_code',[AuthController::class,'send_reset_code'])->name('send_reset_code');

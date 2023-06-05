@@ -82,4 +82,16 @@ class User extends Authenticatable
     public function user_bids(){
         return $this->hasMany(Bid::class,'User_id','id');
     }
+
+
+
+
+    /**
+     * relation with DeliverProduct table
+     *
+     * @return void
+     */
+    public function deliver_product(){
+        return $this->hasMany(DeliverProduct::class,'supplier_id','id');
+    }
 }

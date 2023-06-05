@@ -25,6 +25,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 active middleBlock" id="acttt">
+            <h3 style="font-weight: 700;font-size: 35px;text-align: center;padding-bottom: 20px">In-Progress Orders</h3>
           <!-- products div is where products will be added -->
             <div class="col-xs-12 col-sm-12 col-md-12 products">
                 @forelse($avilable_orders as $order)
@@ -63,12 +64,16 @@
                                 <div class="col-xs-12 col-sm-2 col-md-2 price">
                                     <div class="row divbtn">
 
+                                        @if($order->delivery_products[0]->order_status == 'in-progress')
                                         <div class="col-xs-12 col-sm-12 col-md-12 btn">
-                                            <a href="{{route('accept_order',$order->id)}}"><button class="acc">Accept</button></a>
+                                            <a href="{{route('complete_order',$order->id)}}"><button class="acc">Complete</button></a>
                                         </div>
-{{--                                        <div class="col-xs-12 col-sm-12 col-md-12 btn">--}}
-{{--                                            <button class="ref">Refuse</button>--}}
-{{--                                        </div>--}}
+                                        <div class="col-xs-12 col-sm-12 col-md-12 btn">
+                                            <a href="{{route('refuse_order',$order->id)}}"><button class="ref">Refuse</button></a>
+                                        </div>
+                                        @else
+                                            <button class="acc" disabled>Completed</button>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
