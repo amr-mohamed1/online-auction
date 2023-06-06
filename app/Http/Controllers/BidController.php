@@ -17,7 +17,7 @@ class BidController extends Controller
         try{
             $max_price = Bid::where('product_id',$request->product_id)->max('price');
             $product_min_price = SellCenter::find($request->product_id);
-            if($max_price > $request->price && $product_min_price->price > $request->price){
+            if($max_price > $request->price || $product_min_price->price > $request->price){
                 toastr()->warning('Please Enter Price More Than Highest Bid');
                 return redirect()->back();
             }

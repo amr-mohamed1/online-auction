@@ -13,30 +13,37 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>User Name</th>
-                                <th>Specialist Name</th>
-                                <th>City</th>
-                                <th>Area</th>
-                                <th>Order Status</th>
+                                <th>Product Name</th>
+                                <th>Owner</th>
+                                <th>Price</th>
+                                <th>Condition</th>
+                                <th>Number of Items</th>
+                                <th>Country / City</th>
+                                <th>Full Address</th>
+                                <th>Buyer</th>
+                                <th>Status</th>
                                 <th>Created At</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                         @foreach($orders as $order)
                             <tr>
                                 <td>{{$order->id}}</td>
-                                <td>{{$order->user->name}}</td>
-                                <td>{{$order->specialist->name}}</td>
-                                <td>{{$order->city->name}}</td>
-                                <td>{{$order->area->name}}</td>
-                                <td>{{$order->order_status}}</td>
+                                <td>{{$order->product_title}}</td>
+                                <td>{{$order->owner->first_name . " " . $order->owner->last_name}}</td>
+                                <td>{{$order->max_price}}</td>
+                                <td>{{$order->Condition}}</td>
+                                <td>{{$order->number_of_items}}</td>
+                                <td>{{$order->buyer->country . " / " . $order->buyer->city}}</td>
+                                <td>{{$order->buyer->address}}</td>
+                                <td>{{$order->buyer->first_name . " " . $order->buyer->last_name}}</td>
+                                <td>{{$order->delivery_status != 0 ? "Deliverd" : "Not Deliverd"}}</td>
                                 <td>{{$order->created_at}}</td>
-                                <td>
-                                    <a href="{{Route('admin.orders.show', $order->id)}}"  class="edit btn btn-primary btn-sm" ><i class="fa fa-eye"></i></a>
+{{--                                <td>--}}
+{{--                                    <a href="{{Route('admin.orders.show', $order->id)}}"  class="edit btn btn-primary btn-sm" ><i class="fa fa-eye"></i></a>--}}
 
-                                    <a id="deleteButton" order-id="{{$order->id}}" class="delete btn btn-danger btn-sm" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>
-                                </td>
+{{--                                    <a id="deleteButton" order-id="{{$order->id}}" class="delete btn btn-danger btn-sm" data-toggle="modal" data-target="#deletemodal"><i class="fa fa-trash"></i></a>--}}
+{{--                                </td>--}}
                             </tr>
                         @endforeach
                         </tbody>

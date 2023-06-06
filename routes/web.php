@@ -204,8 +204,17 @@ Route::middleware('auth')->group(function () {
         |  Orders Routes
         |--------------------------------------------------------------------------
        */
-        Route::resource('orders',OrderController::class);
-        Route::Post('/orders/delete', [OrderController::class, 'delete'])->name('orders.delete');
+        Route::resource('orders',\App\Http\Controllers\Admin\OrderController::class);
+        Route::Post('/orders/delete', [\App\Http\Controllers\Admin\OrderController::class, 'delete'])->name('orders.delete');
+
+
+        /*
+       |--------------------------------------------------------------------------
+       |  Products Routes
+       |--------------------------------------------------------------------------
+      */
+        Route::resource('products',\App\Http\Controllers\Admin\ProductController::class);
+        Route::Post('/products/delete', [\App\Http\Controllers\Admin\ProductController::class, 'delete'])->name('products.delete');
 
 
 

@@ -33,7 +33,12 @@
 
 
 
-                {{-- ============================ specialities page ============================== --}}
+                {{-- ============================ products page ============================== --}}
+                <li class=" {{ Request::segment(2) === 'products' ? 'active' : null }}"><a  href="{{route('admin.products.index')}}"><i class="fal fa-box-check"></i><span>Products</span></a></li>
+
+
+
+                {{-- ============================ orders page ============================== --}}
                 <li class=" {{ Request::segment(2) === 'orders' ? 'active' : null }}"><a  href="{{route('admin.orders.index')}}"><i class="far fa-shipping-fast"></i><span>Orders</span></a></li>
 
 
@@ -41,10 +46,6 @@
                 {{-- ============================ Categories page ============================== --}}
                 <li class=" {{ Request::segment(2) === 'categories' ? 'active' : null }}"><a  href="{{route('admin.categories.index')}}"><i class="far fa-user-hard-hat"></i><span>Categories</span></a></li>
 
-
-
-                {{-- ============================ rates page ============================== --}}
-                <li class=" {{ Request::segment(2) === 'rates' ? 'active' : null }}"><a  href="{{route('admin.rates.index')}}"><i class="far fa-star-exclamation"></i><span>Rates</span></a></li>
 
 
                 {{-- ============================ feedbacks page ============================== --}}

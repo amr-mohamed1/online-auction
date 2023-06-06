@@ -86,8 +86,6 @@
         $("#productpic").on("change", function() {
             if ($("#productpic")[0].files.length > 4) {
                 alert("You can select only 4 images");
-            } else {
-                $("#imageUploadForm").submit();
             }
         });
 
